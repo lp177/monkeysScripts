@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            HideRightColumnOfYoutube
 // @description     try to take over the world!
-// @version         1.3211
+// @version         1.3212
 // @grant           none
 // @include         /^http(s)?://(www\.)?youtube\.com/.+$/
 // @author          lp177
