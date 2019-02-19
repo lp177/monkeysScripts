@@ -18,7 +18,6 @@
 		if (document.querySelector('#page_topbar'))
 			document.querySelector('#page_topbar').insertAdjacentHTML( 'afterbegin', `<button class="topbar-notification" type="button" style="width: 40px;margin-right: 10px;height: 40px;" id="bt_177">Menu</button>` );
 
-		console.log( '\n\n\n\n', document.querySelector( '#bt_177' ), '\n\n\n\n' );
 		document.querySelector( '#bt_177' ).addEventListener( 'click', () => ( is_open ) ? close() : open() );
 	}
     function close()
