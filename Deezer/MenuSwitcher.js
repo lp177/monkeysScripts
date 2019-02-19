@@ -1,10 +1,11 @@
 // ==UserScript==
-// @name         Deezer menu switcher
-// @version      0.1
-// @description  Switch the left menu on deezer desktop webapp
-// @author       You
-// @match        https://www.deezer.com/*
-// @grant        none
+// @name         	Deezer menu switcher
+// @description  	Switch the left menu on deezer desktop webapp
+// @version      	0.1
+// @grant        	none
+// @match        	https://www.deezer.com/*
+// @author			lp177
+// @namespace    	https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Deezer/MenuSwitcher.js
 // @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Deezer/MenuSwitcher.js
 // ==/UserScript==

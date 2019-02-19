@@ -1,10 +1,11 @@
 // ==UserScript==
-// @name         Phpmyadmin keeper
-// @version      0.1
-// @description  try to take over the world!
-// @author       Keep connection open by reloading shema
-// @match        http://127.0.0.1/phpmyadmin/*
-// @grant        none
+// @name         	Phpmyadmin keeper
+// @description  	Keep connection open by reloading shema
+// @version      	0.1
+// @grant        	none
+// @match        	http://127.0.0.1/phpmyadmin/*
+// @author			lp177
+// @namespace    	https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // ==/UserScript==

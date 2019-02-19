@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         	HideRightColumnOfYoutube
-// @namespace    	lp177
-// @version      	1.3211
 // @description  	try to take over the world!
-// @author       	You
+// @version      	1.3211
+// @grant        	none
 // @include		    /^http(s)?://(www\.)?youtube\.[a-z]{2,4}/.+$/
+// @author			lp177
+// @namespace    	https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideRightColumnOfYoutube.js
 // @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideRightColumnOfYoutube.js
 // ==/UserScript==
