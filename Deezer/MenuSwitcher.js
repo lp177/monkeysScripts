@@ -1,6 +1,5 @@
 // ==UserScript==
 // @name         Deezer menu switcher
-// @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Switch the left menu on deezer desktop webapp
 // @author       You
