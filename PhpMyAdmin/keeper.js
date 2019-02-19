@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Phpmyadmin keeper
 // @description     Keep connection open by reloading shema
-// @version         0.1
+// @version         1.0001
 // @grant           none
 // @match           http://127.0.0.1/phpmyadmin/*
 // @author          lp177

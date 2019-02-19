@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name            Switch language with tab touch
 // @description     Switch language with tab touch on Google Translate
-// @version         0.3106
+// @version         1.0001
 // @grant           none
-// @include         /^http(s)?://(www\.)?translate.google.[a-z]{2,4}/.+$/
+// @include         /^http(s)?://(www\.)?translate.google.com/.+$/
 // @author          lp177
 // @namespace       https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleTranslate/binding_switch_langue.js

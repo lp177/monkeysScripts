@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Deezer menu switcher
 // @description     Switch the left menu on deezer desktop webapp
-// @version         0.1
+// @version         1.0001
 // @grant           none
 // @match           https://www.deezer.com/*
 // @author          lp177

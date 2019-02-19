@@ -2,7 +2,7 @@
 // @name            HideTobBarSearchYoutube
 // @version         1.3211
 // @description     try to take over the world!
-// @include         /^http(s)?://(www\.)?youtube\.[a-z]{2,4}/.+$/
+// @include         /^http(s)?://(www\.)?youtube\.com/.+$/
 // @author          lp177
 // @namespace       https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideTobBarSearchYoutube.js

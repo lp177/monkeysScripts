@@ -2,7 +2,7 @@
 // @name            PaddingTop280pxYoutube
 // @description     try to take over the world!
 // @version         1.3210
-// @include         /^http(s)?://(www\.)?youtube\.[a-z]{2,4}/watch.+$/
+// @include         /^http(s)?://(www\.)?youtube\.com/watch.+$/
 // @author          lp177
 // @namespace       https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/PaddingTop280pxYoutube.js
