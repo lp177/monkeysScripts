@@ -1,6 +1,7 @@
+
 // ==UserScript==
 // @name         Netflix buttons
-// @version      0.2
+// @version      0.3
 // @description  Add button history on netflix top bar
 // @author       lp177
 // @match        https://www.netflix.com/*
@@ -10,13 +11,21 @@
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/Buttons.js
 // ==/UserScript==
 
-(function()
+function tryToInsertBt( containerSelector, className = '', myBtId = 'bt177n456486u' )
 {
-	'use strict';
+	if ( ! document.querySelector( containerSelector ) || document.querySelector(  '#' + myBtId ) )
+		return false;
 
-	const topBar = document.querySelector('#hd .aro-genre-list ul');
+	document.querySelector( containerSelector ).insertAdjacentHTML('beforeend', '<li id="' + myBtId + '" class="' + className + '"><a href="/viewingactivity">History</a></li>' );
 
-	if ( topBar )
-		topBar.insertAdjacentHTML('beforeend', '<li><a href="/viewingactivity">History</a></li>' );
+	return true;
+}
 
-})();
+function addBt()
+{
+	if ( ! tryToInsertBt( '#hd .aro-genre-list ul' ) )
+		tryToInsertBt( '.main-header ul', 'navigation-tab' );
+}
+
+setTimeout(addBt, 1000);
+setInterval(addBt, 10000);
