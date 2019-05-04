@@ -8,3 +8,12 @@ On Firefox Greasemonkey:
 
 Others regulars browsers with probably Tampermonkey:
 	https://tampermonkey.net/?ext=dhdg&browser=safari
+
+
+Optional linter configuration for editor:
+{
+    "curly": false,
+    "parserOptions": {
+        "ecmaVersion": 6
+    }
+}

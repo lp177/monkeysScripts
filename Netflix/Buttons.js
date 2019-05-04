@@ -1,7 +1,7 @@
 
 // ==UserScript==
 // @name         Netflix buttons
-// @version      0.3
+// @version      0.2
 // @description  Add button history on netflix top bar
 // @author       lp177
 // @match        https://www.netflix.com/*
