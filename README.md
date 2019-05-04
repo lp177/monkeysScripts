@@ -1,5 +1,10 @@
-Customize your experience on common webapps
+JS scripts for customize your experience on common websites with a browser extension:
 
-On Google with Tampermonkey: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
-On Firefox with Greasemonkey: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
-With probably others regulars browsers with Tampermonkey: https://tampermonkey.net/?ext=dhdg&browser=safari
+On Google Tampermonkey:
+	https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+
+On Firefox Greasemonkey:
+	https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
+
+Others regulars browsers with probably Tampermonkey:
+	https://tampermonkey.net/?ext=dhdg&browser=safari
