@@ -1,4 +1,4 @@
-JS scripts for customize your experience on common websites with a browser extension:
+JS scripts for customize your experiences on common websites with just one browser extension:
 
 On Google Tampermonkey:
 	https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo

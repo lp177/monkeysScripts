@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name            Phpmyadmin keeper
+// @name            Phpmyadmin - keeper
 // @description     Keep connection open by reloading shema
-// @version         1.0001
-// @grant           none
-// @match           http://127.0.0.1/phpmyadmin/*
 // @author          lp177
-// @namespace       https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
+// @namespace       lp177
+// @version         1.0002
+// @match           http://127.0.0.1/phpmyadmin/*
+// @grant           none
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // ==/UserScript==
@@ -16,8 +16,11 @@
 
     let delay = 10 * 1000 * 60; /* 10mn in micro secondes */
 
-    var bt = document.querySelector('#pma_navigation_reload');
+    var bt = document.querySelector( '#pma_navigation_reload' );
 
-    setInterval( () => (bt) ? document.querySelector('#pma_navigation_reload').click() : bt = document.querySelector('#pma_navigation_reload') , delay );
+    setInterval( () => ( bt )
+                		? document.querySelector( '#pma_navigation_reload' ).click()
+                		: bt = document.querySelector( '#pma_navigation_reload' ) , delay
+                );
 
 })();

@@ -1,14 +1,13 @@
-
 // ==UserScript==
-// @name         Netflix buttons
-// @version      0.2
-// @description  Add button history on netflix top bar
-// @author       lp177
-// @match        https://www.netflix.com/*
-// @author          lp177
-// @namespace       https://raw.githubusercontent.com/lp177/monkeysScripts/master/README.md
-// @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/Buttons.js
-// @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/Buttons.js
+// @name         	Netflix - History button
+// @description  	Add button history on netflix top bar
+// @author       	lp177
+// @namespace       lp177
+// @version      	1.0001
+// @match        	https://www.netflix.com/*
+// @grant           none
+// @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/HistoryButtons.js
+// @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/HistoryButtons.js
 // ==/UserScript==
 
 function tryToInsertBt( containerSelector, className = '', myBtId = 'bt177n456486u' )
