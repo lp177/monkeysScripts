@@ -6,8 +6,8 @@
 // @version         1.3212
 // @include         /^http(s)?://(www\.)?youtube\.com/.+$/
 // @grant        	none
-// @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideTobBarSearch.js
-// @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideTobBarSearch.js
+// @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideSearchBar.js
+// @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideSearchBar.js
 // ==/UserScript==
 
 function hide()

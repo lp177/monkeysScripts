@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Youtube - Hide right column of recommendations
+// @name            Youtube - Hide right column
 // @description     Hide right column of recommendations and those at the end of the video
 // @namespace    	lp177
 // @author       	lp177
