@@ -17,7 +17,7 @@
 
 	function display()
 	{
-		const targetedDate = new Date( '11/10/2019 06:47:34' ),// month/day/year
+		const targetedDate = new Date( '11/17/2019 06:47:34' ),// month/day/year
 					   now = new Date();
 
 		if ( now > targetedDate )
