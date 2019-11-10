@@ -2,7 +2,7 @@
 // @name         	Youtube - Don't use until given date
 // @namespace    	lp177
 // @author       	lp177
-// @version      	1.0178
+// @version      	1.0179
 // @description  	Block the youtubes pages with a message and a coutdown until the defined date
 // @run-at       	document-start
 // @match        	https://www.youtube.com/*
