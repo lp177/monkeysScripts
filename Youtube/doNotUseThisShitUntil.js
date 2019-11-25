@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         	Youtube - Don't use until given date
+// @name         	Youtube - Don't use until given date or day
 // @namespace    	lp177
 // @author       	lp177
-// @version      	1.0180
-// @description  	Block the youtubes pages with a message and a coutdown until the defined date
+// @version      	1.1001
+// @description  	Block the youtubes pages with a message and a coutdown until the defined date or day of the week
 // @run-at       	document-start
 // @match        	https://www.youtube.com/*
 // @grant        	none
@@ -15,14 +15,28 @@
 {
     'use strict';
 
+	function getNextDayOfTheWeek(dayOfWeek, excludeToday = false, fromDate = new Date())
+	{
+		fromDate.setHours(0,0,0,0);
+		fromDate.setDate(fromDate.getDate() + (dayOfWeek + 7 - fromDate.getDay() - !!excludeToday) % 7);
+		return fromDate;
+	}
+
 	function display()
 	{
-		const targetedDate = new Date( '11/24/2019 06:47:34' ),// month/day/year
-					   now = new Date();
+		const now = new Date(),
+			// targetedDate = new Date( '12/01/2019 06:47:34' );// month/day/year for precise date and time
+			targetedDate = getNextDayOfTheWeek(0);// for recuring day (block all days except thus in parameter) 0 = Sunday, 1 = monday
 
 		if ( now > targetedDate )
-			return alert( 'The delay is outdated, you can now use this shit' );
-
+		{
+			if ( clearInterval != undefined )
+			{
+				clearInterval( intervalId );
+				clearInterval = undefined;
+			}
+			return;
+		}
 		let remainingStr = '',
 			remainingSecondes = (targetedDate.getTime() - now.getTime()) / 1000,
 			secondesInAMonth = 60 * 60 * 24 * 30,
@@ -70,6 +84,7 @@
 													</body>`;
 
 	}
+	setTimeout(display, 150);
 	display();
-	setInterval( display, 1000 );
+	var intervalId = setInterval( display, 1000 );
 })();
