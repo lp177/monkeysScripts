@@ -3,11 +3,11 @@
 // @description  Make body of mails dark
 // @namespace    lp177
 // @author       lp177
-// @version      1.0002
+// @version      1.0003
 // @match        https://mail.google.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Mail/dark_mail_body.js
-// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Mail/dark_mail_body.js
+// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_mail_body.js
+// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_mail_body.js
 // ==/UserScript==
 
 (function() {
