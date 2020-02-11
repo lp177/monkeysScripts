@@ -6,8 +6,8 @@
 // @version      1.0003
 // @match        https://mail.google.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_mail_body.js
-// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_mail_body.js
+// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
+// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
 // ==/UserScript==
 
 (function() {
