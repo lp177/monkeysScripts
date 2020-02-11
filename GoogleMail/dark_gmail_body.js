@@ -3,8 +3,8 @@
 // @description  Make body of mails dark
 // @namespace    lp177
 // @author       lp177
-// @version      1.0001
-// @include      http(s)?://(www\.)?mail.google.com/.+$/
+// @version      1.0002
+// @match        https://mail.google.com/*
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Mail/dark_mail_body.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Mail/dark_mail_body.js
