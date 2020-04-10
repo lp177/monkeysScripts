@@ -14,9 +14,6 @@ function hide()
 {
 	if ( document.querySelector( '#related' ) )
 	    document.querySelector( '#related' ).style = 'display: none !important';
-
-    if ( document.querySelector( '.videowall-endscreen' ) )
-    	document.querySelector( '.videowall-endscreen' ).remove();
 }
 
 // content reloaded in ajax ?
