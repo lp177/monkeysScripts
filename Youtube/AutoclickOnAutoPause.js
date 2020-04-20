@@ -3,8 +3,8 @@
 // @description     Click on the confirm button to unpause the automatic paused video for long time opening window on Youtube
 // @namespace    	lp177
 // @author       	lp177
-// @version         1.0001
-// @include         /^http(s)?://(www\.)?youtube\.com/.+$/
+// @version         1.0002
+// @include         /^http(s)?://(www\.)?youtube\.com/*
 // @grant        	none
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/AutoclickOnAutoPause.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/AutoclickOnAutoPause.js
