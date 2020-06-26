@@ -4,7 +4,7 @@
 // @version      0.0001
 // @description  Skip fucking video clip previous each video on amazon video
 // @author       lp177
-// @match        https://www.primevideo.com/detail/*
+// @match        https://www.primevideo.com/*
 // @grant        none
 // ==/UserScript==
 
