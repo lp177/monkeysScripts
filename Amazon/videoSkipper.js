@@ -6,6 +6,8 @@
 // @author       lp177
 // @match        https://www.primevideo.com/*
 // @grant        none
+// @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Amazon/videoSkipper.js
+// @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Amazon/videoSkipper.js
 // ==/UserScript==
 
 (function() {
