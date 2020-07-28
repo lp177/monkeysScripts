@@ -3,8 +3,8 @@
 // @description  Make fully UI of gmail in dark mode including body of messages and area of new message & reply
 // @namespace    lp177
 // @author       lp177
-// @version      1.0006
-// @match        https://mail.google.com/mail/u/0/?tab=wm&ogbl*
+// @version      1.0007
+// @match        https://mail.google.com/mail/u/0/?*
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
