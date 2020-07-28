@@ -1,3 +1,4 @@
+
 // ==UserScript==
 // @name         Amazon - video clip skipper
 // @namespace    lp177

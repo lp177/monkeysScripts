@@ -1,13 +1,11 @@
 // ==UserScript==
-// @name         	Firefox dark - Fix phpmyadmin background
-// @namespace    	lp177
-// @author       	lp177
-// @version      	0.1001
-// @description  	Fix none dark background by dark reader extension on some phpmyadmin
-// @match        	http://*.allkeyshop.com/scripts/phpmyadmin/*
-// @grant        	none
-// @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/FirefoxDark/FixPhpmyadminBackground.js
-// @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/FirefoxDark/FixPhpmyadminBackground.js
+// @name         Firefox dark - Fix phpmyadmin background
+// @namespace    http://tampermonkey.net/
+// @version      0.2001
+// @description  try to take over the world!
+// @author       You
+// @include      /^https?://aks(web|dev)eu1.allkeyshop.com/scripts/phpmyadmin/.+$/
+// @grant        none
 // ==/UserScript==
 
 (function() {
@@ -19,19 +17,15 @@
 		document.querySelector( 'head' ).insertAdjacentHTML(
 			'beforeend',
 			`<style id="style177">
-				#pma_navigation, body, .group, td, .sqlOuter, .tools
+				#pma_navigation, body, .group, th, td, .sqlOuter, .tools, label
 				{
 					text-shadow: none !important;
-					color: #424242 !important;
-					background: #191b1c !important;
-				}
-				.CodeMirror
-				{
-					background: #191b1c !important;
-				}
-				html body #pma_navigation
-				{
 					color: white !important;
+					background: #191b1c !important;
+				}
+				.CodeMirror, .submenu ul
+				{
+					background: #191b1c !important;
 				}
 				th, #topmenucontainer
 				{
@@ -42,9 +36,6 @@
 				a
 				{
 					text-shadow: none !important;
-				}
-				a
-				{
 					color: #3698ff !important;
 				}
 			</style>`
