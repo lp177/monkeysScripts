@@ -3,7 +3,7 @@
 // @description  	Hide the right basket menu on Amazon
 // @author          lp177
 // @namespace       lp177
-// @version      	1.0001
+// @version      	1.0002
 // @match        	https://www.amazon.fr/*
 // @match        	https://www.amazon.com/*
 // @grant        	none
@@ -14,8 +14,19 @@
 (function() {
     'use strict';
 
-    if ( document.querySelector( '#nav-flyout-ewc' ) )
-		document.querySelector( '#nav-flyout-ewc' ).remove();
+	function update()
+	{
+		if ( document.querySelector( '#nav-flyout-ewc' ) )
+			document.querySelector( '#nav-flyout-ewc' ).remove();
 
-	document.querySelector( 'body' ).setAttribute( 'style', 'padding-right:0;' );
+		if ( document.querySelector( '#navbar' ) )
+			document.querySelector( '#navbar' ).setAttribute( 'style', 'max-width:100%' );
+
+
+		document.querySelector( 'body' ).setAttribute( 'style', 'padding-right:0;' );
+	}
+	update();
+	setTimeout( update, 100 );
+	setTimeout( update, 300 );
+	setTimeout( update, 1000 );
 })();
