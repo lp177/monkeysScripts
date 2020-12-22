@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0002
+// @version      0.0003
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http*://*/*
