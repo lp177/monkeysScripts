@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0003
+// @version      0.0004
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http*://*/*
@@ -48,6 +48,7 @@
 		if (removePopUp('#onetrust-consent-sdk')) return outputDebug( '#onetrust-consent-sd', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
 		else if (removePopUp('#didomi-host', 'didomi-popup-open')) return outputDebug( '#didomi-host', verbose);
+		else if (removePopUp('#sd-cmp', 'noscroll')) return outputDebug( '#sd-cmp', verbose);
 		else if (removePopUp('#iubenda-cs-banner',null,null,'overflow: auto;')) return outputDebug( '#iubenda-cs-banner', verbose);
 		else if (removePopUp('div[id^="sp_message_container_"]')) return outputDebug( 'div[id^="sp_message_container_"]', verbose);
 		else if (removePopUp('body[style="overflow: hidden;"] div[role="presentation"],body[style="overflow: auto;clear177:true;"] div[role="presentation"]', null, 'overflow: auto;clear177:true;')) return outputDebug( 'body[style="overflow: hidden;"] div[role="presentation"]', verbose);
@@ -57,4 +58,4 @@
 	setTimeout( launchAllDetection, 1000 );
 	setTimeout( launchAllDetection, 2000 );
 ;
-})();)();
+})();
