@@ -3,7 +3,7 @@
 // @description     Switch language with the tab touch on Google Translate
 // @author          lp177
 // @namespace       lp177
-// @version         1.0002
+// @version         1.0003
 // @include         /^http(s)?://(www\.)?translate.google.com/.+$/
 // @grant           none
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleTranslate/binding_tab_switch_langue.js
@@ -19,14 +19,16 @@ function dispatchMouseEvent( target, var_args )
 
 function switchLang( e )
 {
-    if (e.keyCode != 9 || ! document.querySelector( '.jfk-button-img' ) )
+    const targetedBT = document.evaluate("//i[text()='swap_horiz']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+    if (e.keyCode != 9 || ! targetedBT )
         return false;
 
     e.preventDefault();
 
-    dispatchMouseEvent( document.querySelector( '.jfk-button-img' ), 'mousedown', true, true );
-    dispatchMouseEvent( document.querySelector( '.jfk-button-img' ), 'mouseup', true, true );
-    dispatchMouseEvent( document.querySelector( '.jfk-button-img' ), 'click', true, true );
+    dispatchMouseEvent( targetedBT, 'mousedown', true, true );
+    dispatchMouseEvent( targetedBT, 'mouseup', true, true );
+    dispatchMouseEvent( targetedBT, 'click', true, true );
 
     return false;
 }
