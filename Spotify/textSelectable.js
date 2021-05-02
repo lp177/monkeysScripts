@@ -3,9 +3,10 @@
 // @description  	Make album name selectable on Spotify
 // @author       	lp177
 // @namespace    	lp177
-// @version      	1.0002
+// @version      	1.0003
 // @match        	https://open.spotify.com/*
 // @grant        	none
+// @icon            https://www.google.com/s2/favicons?domain=open.spotify.com
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Spotify/textSelectable.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Spotify/textSelectable.js
 // ==/UserScript==

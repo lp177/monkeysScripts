@@ -3,9 +3,10 @@
 // @description     Switch the left menu on deezer desktop webapp
 // @author          lp177
 // @namespace       lp177
-// @version         1.0002
+// @version         1.0003
 // @match           https://www.deezer.com/*
 // @grant           none
+// @icon            https://www.google.com/s2/favicons?domain=www.deezer.com
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Deezer/MenuSwitcher.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Deezer/MenuSwitcher.js
 // ==/UserScript==

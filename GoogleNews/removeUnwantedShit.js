@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Google news - Remove clickbait by forbidden keyword in tittle, and remove unwanted section by name
 // @namespace    http://tampermonkey.net/
-// @version      0.0001
+// @version      0.0002
 // @description  Remove google news articles where title match on forbidden list of words and sections of articles who matching with unwantedSections list of names
 // @author       lp177
 // @match        https://news.google.com/*
+// @icon         https://www.google.com/s2/favicons?domain=news.google.com
 // @grant        none
 // ==/UserScript==
 

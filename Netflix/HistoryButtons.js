@@ -3,9 +3,10 @@
 // @description  	Add button history on netflix top bar
 // @author       	lp177
 // @namespace       lp177
-// @version      	1.0001
+// @version      	1.0002
 // @match        	https://www.netflix.com/*
 // @grant           none
+// @icon            https://www.google.com/s2/favicons?domain=www.netflix.com
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/HistoryButtons.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Netflix/HistoryButtons.js
 // ==/UserScript==
