@@ -16,10 +16,14 @@
     'use strict';
     function switchToMostRecent()
 	{
-		if (document.querySelector(`a[data-value='{"stringVal":"recent"}']`))
-			document.querySelector(`a[data-value='{"stringVal":"recent"}']`).click();
-		else
-			return setTimeout(switchToMostRecent, 1000);
+		if (document.querySelector('#cm-cr-dp-review-sort-type span span select'))
+		{
+			if (document.querySelector('#cm-cr-sort-dropdown[aria-pressed="false"],#cm-cr-sort-dropdown:not([aria-pressed])'))
+				document.querySelector('#cm-cr-dp-review-sort-type span span select').click();
+			if(document.querySelector(`a[data-value='{"stringVal":"recent"}']`))
+				return document.querySelector(`a[data-value='{"stringVal":"recent"}']`).click();
+		}
+		setTimeout(switchToMostRecent, 1000);
 	}
 	setTimeout(switchToMostRecent, 300);
 })();
