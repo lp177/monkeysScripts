@@ -1,12 +1,13 @@
 // ==UserScript==
+// @version      	1.1002
 // @name         	Youtube - Don't use until given date or day
-// @namespace    	lp177
-// @author       	lp177
-// @version      	1.1001
 // @description  	Block the youtubes pages with a message and a coutdown until the defined date or day of the week
-// @run-at       	document-start
 // @match        	https://www.youtube.com/*
 // @grant        	none
+// @namespace    	lp177
+// @author       	lp177
+// @run-at       	document-start
+// @icon         	https://www.google.com/s2/favicons?domain=www.youtube.com
 // @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/doNotUseThisShitUntil.js
 // @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/doNotUseThisShitUntil.js
 // ==/UserScript==

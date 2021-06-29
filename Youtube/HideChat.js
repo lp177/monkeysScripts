@@ -1,11 +1,12 @@
 // ==UserScript==
+// @version      	1.3212
 // @name         	Youtube - Hide Chat
-// @namespace    	lp177
-// @author       	lp177
-// @version      	1.3211
 // @description  	Hide the chat on Youtube
 // @include			/^http(s)?://(www\.)?youtube\.com/watch.+$/
 // @grant        	none
+// @namespace    	lp177
+// @author       	lp177
+// @icon         	https://www.google.com/s2/favicons?domain=www.youtube.com
 // @downloadURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideChat.js
 // @updateURL		https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/HideChat.js
 // ==/UserScript==
