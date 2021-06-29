@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ubereat - Close "how was your order?" popup automaticaly
 // @description  Close annoying popup on ubereat who appear after each order "how was your order?"
-// @version      0.002
+// @version      0.003
 // @namespace    lp177
 // @author       lp177
 // @match        https://www.ubereats.com/feed*
@@ -15,15 +15,20 @@
     'use strict';
 	function skipPopUp()
 	{
-		if (document.querySelector('#wrapper footer + div button'))
-			document.querySelector('#wrapper footer + div button').click();
+		tryCount++;
+		if (!document.querySelector('#wrapper footer + div button'))
+		{
+			if (intervalId!=null&&tryCount>100)
+				clearInterval(intervalId)
+			return;
+		}
+		if (intervalId!=null)
+			clearInterval(intervalId)
+		document.querySelector('#wrapper footer + div button').click();
 	}
-	skipPopUp()
+	var intervalId = null,tryCount=0;
+	skipPopUp();
 	setTimeout(skipPopUp, 100);
 	setTimeout(skipPopUp, 300);
-	setTimeout(skipPopUp, 600);
-	setTimeout(skipPopUp, 1000);
-	setTimeout(skipPopUp, 2000);
-	setTimeout(skipPopUp, 3000);
-	setTimeout(skipPopUp, 5000);
+	intervalId = setInterval(skipPopUp, 500);
 })();
