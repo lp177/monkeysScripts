@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0001
+// @version      0.0002
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player...
 // @namespace    lp177
@@ -15,11 +15,19 @@
     'use strict';
 	var debugIsFun=()=>null;
 	// debugIsFun=console.info;
+	function pauseOrDie(e,remaining_try=5)
+	{
+		if (remaining_try<1)
+			return debugIsFun('Paused ',e.target);
+		e.target.pause();
+		debugIsFun('Pausing ',e.target);
+		setTimeout(()=>pauseOrDie(e,remaining_try-1),100);
+	}
 	function pauseAutoPlay(e)
 	{
 			debugIsFun('video presumed auto played: ', e.target);
+			setTimeout(()=>pauseOrDie(e),10);
 			e.target.removeEventListener('play',pauseAutoPlay);
-			setTimeout(()=>e.target.pause(),100);
 	}
 	function updateVideos()
 	{
