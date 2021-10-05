@@ -14,7 +14,7 @@
 (function() {
     'use strict';
 	var debugIsFun=()=>null;
-	debugIsFun=console.info;
+	// debugIsFun=console.info;
 	function pauseAutoPlay(e)
 	{
 			debugIsFun('video presumed auto played: ', e.target);
