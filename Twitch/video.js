@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0003
+// @version      0.0004
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player... Click on timed bonus (icon of chest at left of chat input) automaticaly.
 // @namespace    lp177
@@ -34,6 +34,8 @@
 		const clickableBonus=document.querySelector('.community-points-summary .claimable-bonus__icon');
 		if(clickableBonus)
 			clickableBonus.click();
+		if(document.querySelector('div[data-a-player-type="channel_home_carousel"]'))
+			document.querySelector('div[class^="preview-card-thumbnail"]').click();
 		const v = document.querySelector('video:not(.updatedBy177)');
 		if (!v)
 			return debugIsFun('No video to update found');
