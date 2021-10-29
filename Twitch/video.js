@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0006
+// @version      0.0007
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player... Click on timed bonus (icon of chest at left of chat input) automaticaly.
 // @namespace    lp177
@@ -39,20 +39,16 @@
 		}
 		if(document.querySelector('.community-points-summary .claimable-bonus__icon'))// Click on chest button for collect points
 			document.querySelector('.community-points-summary .claimable-bonus__icon').click();
-		if(!stats.uiSwitched&&document.querySelector('.channel-status-info--live'))// Open detail view of current video for have full and generic ui
-		{
+		if(!stats.uiSwitched)
+		{// Open detail view of current video for have full and generic ui
 			stats.uiSwitched=true;
-			if(window.location.href.split('#')[0].split('?')[0].split('/').length===4)// Avoid to lock usage of others tabs
+			if(document.querySelector('.channel-status-info--live'))// We are on live streaming
 			{
-				console.info('Click on .channel-status-info--live');
-				document.querySelector('.channel-status-info--live').click();
+				if(window.location.href.split('#')[0].split('?')[0].split('/').length===4)// Avoid to lock usage of others tabs
+					document.querySelector('.channel-status-info--live').click();
 			}
-		}
-		else if(!stats.uiSwitched&&document.querySelector('div[data-a-player-type="channel_home_carousel"]'))// Open detail view of current video for have full and generic ui
-		{
-			stats.uiSwitched=true;
-			console.info('Click on div[class^="preview-card-thumbnail"]');
-			document.querySelector('div[class^="preview-card-thumbnail"]').click();
+			else if(document.querySelector('div[data-a-player-type="channel_home_carousel"]'))// We are on replay video
+				document.querySelector('div[class^="preview-card-thumbnail"]').click();
 		}
 		const v = document.querySelector('video:not(.updatedBy177)');
 		if (!v)
