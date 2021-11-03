@@ -1,12 +1,12 @@
 // ==UserScript==
-// @version      0.0007
+// @version      1.001
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player... Click on timed bonus (icon of chest at left of chat input) automaticaly.
-// @namespace    lp177
 // @author       lp177
 // @match        https://www.twitch.tv/*
 // @icon         https://www.google.com/s2/favicons?domain=twitch.tv
 // @grant        none
+// @namespace    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Twitch/video.js
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Twitch/video.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Twitch/video.js
 // ==/UserScript==
@@ -49,6 +49,8 @@
 			}
 			else if(document.querySelector('div[data-a-player-type="channel_home_carousel"]'))// We are on replay video
 				document.querySelector('div[class^="preview-card-thumbnail"]').click();
+			else
+				stats.uiSwitched=false;
 		}
 		const v = document.querySelector('video:not(.updatedBy177)');
 		if (!v)
