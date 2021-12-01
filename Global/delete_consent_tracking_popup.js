@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0005
+// @version      0.005
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
-// @match        http*://*/*
+// @match        http://*/*
+// @match        https://*/*
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Global/delete_consent_tracking_popup.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Global/delete_consent_tracking_popup.js
@@ -33,7 +34,7 @@
 				document.body.classList.remove(className);
 		}
 	}
-	function removePopUp(popUpSelector, removeClassFromBody = null, setBodyStyle = null, setHtmlStyle = null)
+	function removePopUp(popUpSelector, removeClassFromBody = null, setBodyStyle = null, setHtmlStyle = null, callback = null)
 	{
 		const popUp = document.querySelector(popUpSelector);
 
@@ -48,6 +49,8 @@
 			applyStyleAnPreserve('body', setBodyStyle);
 		if (setHtmlStyle)
 			applyStyleAnPreserve('html', setHtmlStyle);
+		if (callback)
+			callback();
 
 		return true;
 	}
@@ -60,17 +63,22 @@
 	{
 		const verbose = true;
 		if (removePopUp('#onetrust-consent-sdk')) return outputDebug( '#onetrust-consent-sd', verbose);
+		else if (removePopUp('#cookiebanner')) return outputDebug( '#cookiebanner', verbose);
+		else if (removePopUp('#privacy-consent')) return outputDebug( '#privacy-consent', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
 		else if (removePopUp('#didomi-host', 'didomi-popup-open')) return outputDebug( '#didomi-host', verbose);
-		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'])) return outputDebug( '#sd-cmp', verbose);
+		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'],null,null,()=>window.scrollTo({ top: 0, behavior: 'smooth' }))) return outputDebug( '#sd-cmp', verbose);
 		else if (removePopUp('#dpr-manager')) return outputDebug( '#dpr-manager', verbose);
 		else if (removePopUp('#iubenda-cs-banner',null,null,'overflow: auto;')) return outputDebug( '#iubenda-cs-banner', verbose);
-		else if (removePopUp('div[id^="sp_message_container_"]')) return outputDebug( 'div[id^="sp_message_container_"]', verbose);
+		else if (removePopUp('div[id^="sp_message_container_"]','sp-message-open')) return outputDebug( 'div[id^="sp_message_container_"]', verbose);
 		else if (removePopUp('body[style="overflow: hidden;"] div[role="presentation"],body[style="overflow: auto;clear177:true;"] div[role="presentation"]', null, 'overflow: auto;clear177:true;')) return outputDebug( 'body[style="overflow: hidden;"] div[role="presentation"]', verbose);
 		else if (removePopUp('.truste_overlay[id^="pop-div"]') && removePopUp('.truste_box_overlay[id^="pop-div"]')) return outputDebug( '.truste_overlay[id^="pop-div"]', verbose);
 		else if (removePopUp('#axeptio_overlay')) return outputDebug( '#axeptio_overlay', verbose);
 		else if (removePopUp('#gdpr-consent')) return outputDebug( '#gdpr-consent', verbose);
 		else if (removePopUp('.plo-cookie-overlay','plu-no-scroll')) return outputDebug( '#axeptio_overlay', verbose);
+		// not RGPD but painful banner/modal who request of auth/subscribe
+		else if (removePopUp('#js-message-register')) return outputDebug( '#js-message-register', verbose);
+		else document.querySelector('html').className.includes('sd-cmp')&&document.querySelector('html').setAttribute('style','overflow:auto!important;');
 	}
 	setTimeout( launchAllDetection, 300 );
 	setTimeout( launchAllDetection, 1000 );
