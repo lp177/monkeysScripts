@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.005
+// @version      0.006
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http://*/*
@@ -64,6 +64,7 @@
 		const verbose = true;
 		if (removePopUp('#onetrust-consent-sdk')) return outputDebug( '#onetrust-consent-sd', verbose);
 		else if (removePopUp('#cookiebanner')) return outputDebug( '#cookiebanner', verbose);
+		else if (removePopUp('.cookie-banner')) return outputDebug( '.cookie-banner', verbose);
 		else if (removePopUp('#privacy-consent')) return outputDebug( '#privacy-consent', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
 		else if (removePopUp('#didomi-host', 'didomi-popup-open')) return outputDebug( '#didomi-host', verbose);
@@ -78,6 +79,7 @@
 		else if (removePopUp('.plo-cookie-overlay','plu-no-scroll')) return outputDebug( '#axeptio_overlay', verbose);
 		// not RGPD but painful banner/modal who request of auth/subscribe
 		else if (removePopUp('#js-message-register')) return outputDebug( '#js-message-register', verbose);
+		else if (removePopUp('div[data-testid^="cookie-policy"]', null, null, null,()=>setTimeout(()=>document.querySelector('body>div').setAttribute('style','position:relative!important;'),1))) return outputDebug( 'div[data-testid="cookie-policy-manage-dialog"]', verbose);
 		else document.querySelector('html').className.includes('sd-cmp')&&document.querySelector('html').setAttribute('style','overflow:auto!important;');
 	}
 	setTimeout( launchAllDetection, 300 );
