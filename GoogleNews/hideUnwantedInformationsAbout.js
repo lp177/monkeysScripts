@@ -16,11 +16,11 @@
 
 	const unwantedSections = ['Sports','Divertissement','Économie','Pour vous'];
 	const forbiddensKeywords = [
-		'samsung','xiaomi','cac 40','iphone',
+		'samsung','xiaomi','cac 40','iphone','stock PS5',
 		'disparition','disparue','enlèvement','sondage','tpmp','viol','drame','hommage',
-		'décèdé','décède','décédé','popularité','conjoint','extorqué','meurtre','agression','tue','obsèque','inceste',
-		'présidentielle 2022','election présidentielle','darmanin','douard philippe','procès des attentats du 13 Novembre',
-		'manuel valls','blanquer','véran ','castex','gabriel attal','zemmour'
+		'décèdé','décède','décédé','popularité','conjoint','extorqué','meurtre','agression','tue','obsèque','inceste','chauffard',
+		'darmanin','douard philippe','procès des attentats du 13 Novembre',
+		'manuel valls','trump','blanquer','véran ','castex','gabriel attal','zemmour'
 	];
 
 	function filterArticles()
