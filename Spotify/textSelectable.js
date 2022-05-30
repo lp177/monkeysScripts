@@ -3,7 +3,7 @@
 // @description  	Make album name selectable on Spotify
 // @author       	lp177
 // @namespace    	lp177
-// @version      	1.0003
+// @version      	1.0004
 // @match        	https://open.spotify.com/*
 // @grant        	none
 // @icon            https://www.google.com/s2/favicons?domain=open.spotify.com
@@ -14,8 +14,13 @@
 // Make selectable switch
 function apply177()
 {
-	if ( document.querySelector( '.mo-info span' ) )
-		document.querySelector( '.mo-info span' ).style = 'user-select: all;';
+	if (!document.querySelector( 'style#injected177' ))
+    document.querySelector('head').insertAdjacentHTML(
+		'beforeend',
+		`<style type="text/css" id="injected177">
+		*[draggable]{user-select:all !important;}
+		</style>`
+	)
 }
 
 // Apply / reaply on new "page"
