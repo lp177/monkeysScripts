@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.006
+// @version      0.0071
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http://*/*
@@ -67,6 +67,7 @@
 		else if (removePopUp('.cookie-banner')) return outputDebug( '.cookie-banner', verbose);
 		else if (removePopUp('#privacy-consent')) return outputDebug( '#privacy-consent', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
+		else if (removePopUp('#CybotCookiebotDialog')) return outputDebug( '#CybotCookiebotDialog', verbose);
 		else if (removePopUp('#didomi-host', 'didomi-popup-open')) return outputDebug( '#didomi-host', verbose);
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'],null,null,()=>window.scrollTo({ top: 0, behavior: 'smooth' }))) return outputDebug( '#sd-cmp', verbose);
 		else if (removePopUp('#dpr-manager')) return outputDebug( '#dpr-manager', verbose);
@@ -76,11 +77,17 @@
 		else if (removePopUp('.truste_overlay[id^="pop-div"]') && removePopUp('.truste_box_overlay[id^="pop-div"]')) return outputDebug( '.truste_overlay[id^="pop-div"]', verbose);
 		else if (removePopUp('#axeptio_overlay')) return outputDebug( '#axeptio_overlay', verbose);
 		else if (removePopUp('#gdpr-consent')) return outputDebug( '#gdpr-consent', verbose);
+		else if (removePopUp('div[class*="DivCookieBannerContainer"]')) return outputDebug( 'div[class*="DivCookieBannerContainer"]', verbose);
+		else if (removePopUp('.qc-cmp2-container')) return outputDebug( '.qc-cmp2-container', verbose);
+		else if (removePopUp('.incentive-banner')) return outputDebug( '.incentive-banner', verbose);
 		else if (removePopUp('.plo-cookie-overlay','plu-no-scroll')) return outputDebug( '#axeptio_overlay', verbose);
 		// not RGPD but painful banner/modal who request of auth/subscribe
 		else if (removePopUp('#js-message-register')) return outputDebug( '#js-message-register', verbose);
+		else if (removePopUp('.fig-consent-banner')) return outputDebug( '.fig-consent-banner', verbose);
 		else if (removePopUp('div[data-testid^="cookie-policy"]', null, null, null,()=>setTimeout(()=>document.querySelector('body>div').setAttribute('style','position:relative!important;'),1))) return outputDebug( 'div[data-testid="cookie-policy-manage-dialog"]', verbose);
 		else document.querySelector('html').className.includes('sd-cmp')&&document.querySelector('html').setAttribute('style','overflow:auto!important;');
+		// Floating not wanted video popup
+		removePopUp('iframe.viously-iframe');
 	}
 	setTimeout( launchAllDetection, 300 );
 	setTimeout( launchAllDetection, 1000 );
