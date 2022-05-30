@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0002
+// @version      0.0004
 // @name         Ubereat - Focus traking map, remove useless UI
 // @namespace    lp177
 // @author       lp177
@@ -14,14 +14,26 @@
 
 (function() {
     'use strict';
-
+	function countItemsHighlightable()
+	{
+		const items=document.querySelectorAll('.cw,.f1,.fq');
+		return (!items||!items.length)?0:items.length;
+	}
+	var highlightableItemsCount=countItemsHighlightable();
+	function refreshIfCountItemsHighlightableChange()
+	{
+		const actualCount=countItemsHighlightable();
+		if (actualCount!=highlightableItemsCount)
+			location.reload();
+		window.setTimeout(refreshIfCountItemsHighlightableChange,15000);
+	}
 	function update()
 	{
     	if (document.querySelector('footer'))
 		{
 			document.querySelector('footer').remove();
 			if (document.querySelector('#main-content > div:nth-of-type(2) > div:nth-of-type(2)'))
-				document.querySelector('#main-content > div:nth-of-type(2) > div:nth-of-type(2)').setAttribute('style','bottom:0px;');
+				document.querySelector('#main-content > div:nth-of-type(2) > div:nth-of-type(2)').setAttribute('style','bottom:0px;top:0px;');
 			if (document.querySelector('header'))
 				document.querySelector('header').remove();
 			if (document.querySelector('#main-content > div:last-of-type > div:last-of-type'))
@@ -34,8 +46,8 @@
 		'beforeend',
 		`<style type="text/css" id="injected177">
 		.cw{box-shadow: 0 0 50px 10px red !important;}
-		.f1,.f2,.f3,.f4{box-shadow: 0 0 20px 1px blue !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
-		.fg{box-shadow: 0 0 50px 10px green !important;}
+		.f1,.fg,.g8{box-shadow: 0 0 20px 1px blue !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
+		.fq,.b1{box-shadow: 0 0 50px 10px green !important;}
 		</style>`
 	)
 	document.querySelector('body').setAttribute('style', 'overflow:hidden');
@@ -43,4 +55,6 @@
 	window.setTimeout(update, 300);
 	window.setTimeout(update, 1000);
 	window.setTimeout(update, 3000);
+	window.setTimeout(()=>{highlightableItemsCount=countItemsHighlightable()},20000);
+	window.setTimeout(refreshIfCountItemsHighlightableChange,25000);
 })();
