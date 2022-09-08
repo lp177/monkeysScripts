@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0071
+// @version      0.0127
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http://*/*
@@ -84,6 +84,7 @@
 		// not RGPD but painful banner/modal who request of auth/subscribe
 		else if (removePopUp('#js-message-register')) return outputDebug( '#js-message-register', verbose);
 		else if (removePopUp('.fig-consent-banner')) return outputDebug( '.fig-consent-banner', verbose);
+		else if (removePopUp('div[data-t="cookiesMessage"]')) return outputDebug( 'div[data-t="cookiesMessage"]', verbose);
 		else if (removePopUp('div[data-testid^="cookie-policy"]', null, null, null,()=>setTimeout(()=>document.querySelector('body>div').setAttribute('style','position:relative!important;'),1))) return outputDebug( 'div[data-testid="cookie-policy-manage-dialog"]', verbose);
 		else document.querySelector('html').className.includes('sd-cmp')&&document.querySelector('html').setAttribute('style','overflow:auto!important;');
 		// Floating not wanted video popup
@@ -92,5 +93,4 @@
 	setTimeout( launchAllDetection, 300 );
 	setTimeout( launchAllDetection, 1000 );
 	setTimeout( launchAllDetection, 2000 );
-;
 })();
