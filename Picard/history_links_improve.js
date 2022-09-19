@@ -7,6 +7,8 @@
 // @match        https://www.picard.fr/on/demandware.store/Sites-picard-Site/fr_FR/Order-Track*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=picard.fr
 // @grant        none
+// @downloadURL         https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/history_links_improve.js
+// @updateURL           https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/history_links_improve.js
 // ==/UserScript==
 (function() {
     'use strict';
