@@ -25,18 +25,27 @@
 		if(!Array.isArray(classNames))
 			classNames=[classNames];
 		if (classNames.length<1)return;
+		var changes=0;
 		for (let className of classNames)
 		{
-		let htmlTag=document.querySelector('html');
+			let htmlTag=document.querySelector('html'),
+				bodyTag=document.querySelector('body');
 			if(htmlTag.classList.contains(className))
+			{
 				htmlTag.classList.remove(className);
-			if(document.body.classList.contains(className))
-				document.body.classList.remove(className);
+				changes++;
+			}
+			if(bodyTag.classList.contains(className))
+			{
+				bodyTag.classList.remove(className);
+				changes++;
+			}
 		}
+		return changes;
 	}
 	function removePopUp(popUpSelector, removeClassFromBody = null, setBodyStyle = null, setHtmlStyle = null, callback = null)
 	{
-		const popUp = document.querySelector(popUpSelector);
+		const popUp=document.querySelector(popUpSelector);
 
 		if (!popUp)
 			return false;
@@ -59,6 +68,11 @@
 		if (verbose === false) return;
 		console.info(prefix,msg);
 	}
+	function rearmRemoveCssClassUntilSuccess(classNames,max_rearm=100)
+	{
+		if(!removeCssClass(classNames)&&--max_rearm>0)
+			setTimeout(()=>rearmRemoveCssClassUntilSuccess(classNames,max_rearm),100);
+	}
 	function launchAllDetection()
 	{
 		const verbose = true;
@@ -68,7 +82,7 @@
 		else if (removePopUp('#privacy-consent')) return outputDebug( '#privacy-consent', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
 		else if (removePopUp('#CybotCookiebotDialog')) return outputDebug( '#CybotCookiebotDialog', verbose);
-		else if (removePopUp('#didomi-host', 'didomi-popup-open')) return outputDebug( '#didomi-host', verbose);
+		else if (removePopUp('#didomi-host', 'didomi-popup-open')){rearmRemoveCssClassUntilSuccess('didomi-popup-open');return outputDebug( '#didomi-host', verbose );}
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'],null,null,()=>window.scrollTo({ top: 0, behavior: 'smooth' }))) return outputDebug( '#sd-cmp', verbose);
 		else if (removePopUp('#dpr-manager')) return outputDebug( '#dpr-manager', verbose);
 		else if (removePopUp('#iubenda-cs-banner',null,null,'overflow: auto;')) return outputDebug( '#iubenda-cs-banner', verbose);
@@ -93,4 +107,5 @@
 	setTimeout( launchAllDetection, 300 );
 	setTimeout( launchAllDetection, 1000 );
 	setTimeout( launchAllDetection, 2000 );
+	setTimeout( launchAllDetection, 5000 );
 })();
