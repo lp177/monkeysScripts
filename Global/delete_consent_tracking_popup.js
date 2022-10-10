@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0127
+// @version      0.0128
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http://*/*
@@ -81,6 +81,7 @@
 		else if (removePopUp('.cookie-banner')) return outputDebug( '.cookie-banner', verbose);
 		else if (removePopUp('#privacy-consent')) return outputDebug( '#privacy-consent', verbose);
 		else if (removePopUp('.cookie-banner-layer')) return outputDebug( '.cookie-banner-layer', verbose);
+		else if (removePopUp('.cookie-policy')) return outputDebug( '.cookie-policy', verbose);
 		else if (removePopUp('#CybotCookiebotDialog')) return outputDebug( '#CybotCookiebotDialog', verbose);
 		else if (removePopUp('#didomi-host', 'didomi-popup-open')){rearmRemoveCssClassUntilSuccess('didomi-popup-open');return outputDebug( '#didomi-host', verbose );}
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'],null,null,()=>window.scrollTo({ top: 0, behavior: 'smooth' }))) return outputDebug( '#sd-cmp', verbose);
