@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete consent tracking pop up
 // @namespace    lp177
-// @version      0.0128
+// @version      0.0129
 // @description  Remove automaticaly all generic pop up who query consent for tracking you
 // @author       lp177
 // @match        http://*/*
@@ -93,14 +93,18 @@
 		else if (removePopUp('#axeptio_overlay')) return outputDebug( '#axeptio_overlay', verbose);
 		else if (removePopUp('#gdpr-consent')) return outputDebug( '#gdpr-consent', verbose);
 		else if (removePopUp('div[class*="DivCookieBannerContainer"]')) return outputDebug( 'div[class*="DivCookieBannerContainer"]', verbose);
-		else if (removePopUp('.qc-cmp2-container')) return outputDebug( '.qc-cmp2-container', verbose);
-		else if (removePopUp('.incentive-banner')) return outputDebug( '.incentive-banner', verbose);
+		else if (removePopUp('.qc-cmp2-container')) return outputDebug('.qc-cmp2-container', verbose);
+		else if (removePopUp('.incentive-banner')) return outputDebug('.incentive-banner', verbose);
+		else if (removePopUp('.gdpr-settings')) return outputDebug('.gdpr-settings', verbose);
 		else if (removePopUp('.plo-cookie-overlay','plu-no-scroll')) return outputDebug( '#axeptio_overlay', verbose);
 		// not RGPD but painful banner/modal who request of auth/subscribe
 		else if (removePopUp('#js-message-register')) return outputDebug( '#js-message-register', verbose);
+		else if (removePopUp('#HardsellOverlay',null,'overflow: auto;')) return outputDebug( '#HardsellOverlay', verbose);
 		else if (removePopUp('.fig-consent-banner')) return outputDebug( '.fig-consent-banner', verbose);
 		else if (removePopUp('div[data-t="cookiesMessage"]')) return outputDebug( 'div[data-t="cookiesMessage"]', verbose);
 		else if (removePopUp('div[data-testid^="cookie-policy"]', null, null, null,()=>setTimeout(()=>document.querySelector('body>div').setAttribute('style','position:relative!important;'),1))) return outputDebug( 'div[data-testid="cookie-policy-manage-dialog"]', verbose);
+		else if (removePopUp('#cplus_content_modal')){removePopUp('#cplus_content_overlay');return outputDebug('#cplus_content_modal', verbose);}
+		else if (removePopUp('#fast-cmp-root')){document.querySelector('html').removeAttribute('data-fast-cmp-locked');return outputDebug('#cplus_content_modal', verbose);}
 		else document.querySelector('html').className.includes('sd-cmp')&&document.querySelector('html').setAttribute('style','overflow:auto!important;');
 		// Floating not wanted video popup
 		removePopUp('iframe.viously-iframe');
@@ -109,4 +113,6 @@
 	setTimeout( launchAllDetection, 1000 );
 	setTimeout( launchAllDetection, 2000 );
 	setTimeout( launchAllDetection, 5000 );
+	setTimeout( location.reload.bind(window), 20000 );
 })();
+
