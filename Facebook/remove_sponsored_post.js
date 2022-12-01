@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0001
+// @version      0.0002
 // @name         Remove facebook sponsored post
 // @description  Remove each sponsored posts on Facebook / Meta
 // @namespace    lp177
@@ -14,12 +14,8 @@
     'use strict';
 	function removeAllSponsoredPost()
 	{
-		console.info('removeAllSponsoredPost called');
 		for(let el of document.querySelectorAll('a[href^="/ads/"]'))
-		{
-			console.info('Sponsored post removed');
 			el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
-		}
 	}
 	function throttle(callback, delay, context)
 	{
