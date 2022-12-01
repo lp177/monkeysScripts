@@ -1,4 +1,4 @@
-i// ==UserScript==
+// ==UserScript==
 // @version      0.0001
 // @name         Remove facebook sponsored post
 // @description  Remove each sponsored posts on Facebook / Meta
