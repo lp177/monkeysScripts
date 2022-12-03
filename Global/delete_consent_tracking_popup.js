@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0130
+// @version      0.0131
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -75,7 +75,7 @@
 	{
 		const verbose = true;
 		if (removePopUp(
-				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,'
+				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,'
 				+'.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.qc-cmp2-container,.incentive-banner,.gdpr-settings,.fig-consent-banner,'
 				+'div[class*="DivCookieBannerContainer"]'
 		))
@@ -101,6 +101,9 @@
 
 		else if (removePopUp('.truste_overlay[id^="pop-div"]') && removePopUp('.truste_box_overlay[id^="pop-div"]'))
 			return outputDebug('.truste_overlay[id^="pop-div"]', verbose);
+
+		else if (removePopUp('#cookieBarRGPDPop') && removePopUp('#cookieBarRGPDOverlay'))
+			return outputDebug('#cookieBarRGPDPop', verbose);
 
 		else if (removePopUp('.plo-cookie-overlay', 'plu-no-scroll'))
 			return outputDebug('#axeptio_overlay', verbose);
