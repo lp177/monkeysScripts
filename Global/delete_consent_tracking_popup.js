@@ -164,8 +164,8 @@
 			return outputDebug('#gdpr-privacy-settings', verbose);
 		}
 
-		else if (document.querySelector('.gdpr-reject-btn,#gdpr-reject-btn'))
-			document.querySelector('.gdpr-reject-btn,#gdpr-reject-btn').click();
+		else if (document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn'))
+			document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn').click();
 		else
 			document.querySelector('html').className.includes('sd-cmp') && document.querySelector('html').setAttribute('style', 'overflow:auto!important;');
 
@@ -177,4 +177,3 @@
 	setTimeout(launchAllDetection, 2000);
 	setTimeout(launchAllDetection, 5000);
 })();
-
