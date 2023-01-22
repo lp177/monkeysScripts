@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0004
+// @version      0.0003
 // @name         Ubereat - Focus traking map, remove useless UI
 // @namespace    lp177
 // @author       lp177
@@ -16,7 +16,7 @@
     'use strict';
 	function countItemsHighlightable()
 	{
-		const items=document.querySelectorAll('.cw,.f1,.fq');
+		const items=document.querySelectorAll('.cw,.f1,.fq,.fj,.fl');//fj fk fl eg eh fm fn
 		return (!items||!items.length)?0:items.length;
 	}
 	var highlightableItemsCount=countItemsHighlightable();
@@ -41,13 +41,16 @@
 			if(document.querySelector('#main-content > div'))
 				document.querySelector('#main-content > div').setAttribute('style','max-width:250px;');
 		}
+		if (document.querySelector('div[style="top:0!important;bottom:0!important;"]:has(svg)'))
+			document.querySelector('div[style="top:0!important;bottom:0!important;"]:has(svg)').remove();
 	}
     document.querySelector('head').insertAdjacentHTML(
 		'beforeend',
 		`<style type="text/css" id="injected177">
 		.cw{box-shadow: 0 0 50px 10px red !important;}
-		.f1,.fg,.g8{box-shadow: 0 0 20px 1px blue !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
-		.fq,.b1{box-shadow: 0 0 50px 10px green !important;}
+		.f1,.fg,.g8,.gm{box-shadow: 0 0 20px 1px blue !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
+		.g0,.g1,.g2,.g3,.g4{box-shadow: 0 0 20px 1px red !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
+		.b1,.fl,.gi{box-shadow: 0 0 50px 10px green !important;}
 		</style>`
 	)
 	document.querySelector('body').setAttribute('style', 'overflow:hidden');
@@ -57,4 +60,5 @@
 	window.setTimeout(update, 3000);
 	window.setTimeout(()=>{highlightableItemsCount=countItemsHighlightable()},20000);
 	window.setTimeout(refreshIfCountItemsHighlightableChange,25000);
+	window.setTimeout(window.location.reload.bind(window.location), document.body.innerText.search('Commande en cours de préparation…')<1?60000:20000);
 })();
