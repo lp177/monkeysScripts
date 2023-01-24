@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0131
+// @version      0.0132
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -76,10 +76,19 @@
 		const verbose = true;
 		if (removePopUp(
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,'
-				+'.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.qc-cmp2-container,.incentive-banner,.gdpr-settings,.fig-consent-banner,'
+				+'.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,'
 				+'div[class*="DivCookieBannerContainer"]'
 		))
 			return outputDebug('Generic simple modal list', verbose);
+
+		else if (document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]'))
+		{
+			document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]').click();
+			return removePopUp('didomi-popup-open');
+		}
+
+		else if (removePopUp('.qc-cmp2-container'))
+			return outputDebug('cmp2', verbose);
 
 		else if (removePopUp('#didomi-host', 'didomi-popup-open'))
 		{
