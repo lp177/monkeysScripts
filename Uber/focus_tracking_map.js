@@ -46,12 +46,7 @@
 	}
     document.querySelector('head').insertAdjacentHTML(
 		'beforeend',
-		`<style type="text/css" id="injected177">
-		.cw{box-shadow: 0 0 50px 10px red !important;}
-		.f1,.fg,.g8,.gm{box-shadow: 0 0 20px 1px blue !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
-		.g0,.g1,.g2,.g3,.g4{box-shadow: 0 0 20px 1px red !important;background-color:rgba(0,0,250,0.1) !important;border-radius:25%;}
-		.b1,.fl,.gi{box-shadow: 0 0 50px 10px green !important;}
-		</style>`
+		`<style type="text/css" id="injected177">div[style="user-select: none; pointer-events: all;"] > div{box-shadow: 0 0 10px 10px green !important;}</style>`
 	)
 	document.querySelector('body').setAttribute('style', 'overflow:hidden');
 	update();
