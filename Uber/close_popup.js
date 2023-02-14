@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ubereat - Close "how was your order?" popup automaticaly
 // @description  Close annoying popup on ubereat who appear after each order "how was your order?"
-// @version      0.002
+// @version      0.003
 // @namespace    lp177
 // @author       lp177
 // @match        https://www.ubereats.com/*
