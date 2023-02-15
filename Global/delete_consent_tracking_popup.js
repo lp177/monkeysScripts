@@ -75,7 +75,7 @@
 	{
 		const verbose = true;
 		if (removePopUp(
-				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,'
+				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#consent_blackbar,'
 				+'.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,'
 				+'div[class*="DivCookieBannerContainer"]'
 		))
@@ -95,6 +95,9 @@
 			rearmRemoveCssClassUntilSuccess('didomi-popup-open');
 			return outputDebug('Didomi', verbose);
 		}
+
+		else if(removePopUp('.gdpr-lmd-wall', 'popin-gdpr-no-scroll'))
+			return outputDebug('.gdpr-lmd-wall', verbose);
 
 		else if (removePopUp('div[data-portal-id="modal-portal-1"]', 'scrollDisabled'))
 			return outputDebug('data-portal-id["modal-portal-1"]', verbose);
@@ -175,6 +178,10 @@
 
 		else if (document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn'))
 			document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn').click();
+
+		else if (document.querySelector('#vidal_consent a[name="button-refuse"]'))
+			document.querySelector('#vidal_consent a[name="button-refuse"]').click();
+
 		else
 			document.querySelector('html').className.includes('sd-cmp') && document.querySelector('html').setAttribute('style', 'overflow:auto!important;');
 
