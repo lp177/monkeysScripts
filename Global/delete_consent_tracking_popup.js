@@ -75,9 +75,10 @@
 	{
 		const verbose = true;
 		if (removePopUp(
-				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#consent_blackbar,'
-				+'.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,'
-				+'div[class*="DivCookieBannerContainer"]'
+				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
+				+',#consent_blackbar,#ez-cookie-dialog-wrapper'
+				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner'
+				+',div[class*="DivCookieBannerContainer"]'
 		))
 			return outputDebug('Generic simple modal list', verbose);
 
@@ -85,6 +86,11 @@
 		{
 			document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]').click();
 			return removePopUp('didomi-popup-open');
+		}
+		else if (document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3'))
+		{
+			document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3').click();
+			return outputDebug('tc_privacy', verbose);
 		}
 
 		else if (removePopUp('.qc-cmp2-container'))
