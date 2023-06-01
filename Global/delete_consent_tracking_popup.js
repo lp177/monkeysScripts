@@ -24,10 +24,10 @@
 			classNames = [classNames];
 		if (classNames.length < 1)return;
 		var changes = 0;
+		const htmlTag = document.querySelector('html'),
+			bodyTag = document.querySelector('body');
 		for (let className of classNames)
 		{
-			let htmlTag = document.querySelector('html'),
-				bodyTag = document.querySelector('body');
 			if(htmlTag.classList.contains(className))
 			{
 				htmlTag.classList.remove(className);
@@ -66,6 +66,11 @@
 		if (verbose === false) return;
 		console.info(prefix, msg);
 	}
+	function rearmRemovePopUp(popUpSelector, removeClassFromBody = null, setBodyStyle = null, setHtmlStyle = null, callback = null, max_rearm = 100)
+	{
+		if(!removePopUp(popUpSelector, removeClassFromBody, setBodyStyle, setHtmlStyle, callback) && --max_rearm > 0)
+			setTimeout(() => rearmRemovePopUp(popUpSelector, removeClassFromBody, setBodyStyle, setHtmlStyle, callback, max_rearm), 100);
+	}
 	function rearmRemoveCssClassUntilSuccess(classNames,max_rearm = 100)
 	{
 		if(!removeCssClass(classNames) && --max_rearm > 0)
@@ -76,7 +81,7 @@
 		const verbose = true;
 		if (removePopUp(
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
-				+',#consent_blackbar,#ez-cookie-dialog-wrapper'
+				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies'
 				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner'
 				+',div[class*="DivCookieBannerContainer"]'
 		))
@@ -87,6 +92,7 @@
 			document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]').click();
 			return removePopUp('didomi-popup-open');
 		}
+
 		else if (document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3'))
 		{
 			document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3').click();
@@ -99,17 +105,30 @@
 		else if (removePopUp('#didomi-host', 'didomi-popup-open'))
 		{
 			rearmRemoveCssClassUntilSuccess('didomi-popup-open');
+			removePopUp('#acceptationCMPWall', null, 'overflow: auto;');
 			return outputDebug('Didomi', verbose);
 		}
 
 		else if(removePopUp('.gdpr-lmd-wall', 'popin-gdpr-no-scroll'))
 			return outputDebug('.gdpr-lmd-wall', verbose);
 
+		else if(removePopUp('.cookie-notice'))
+		{
+			removePopUp('.cookie-mask');
+			return outputDebug('.cookie-notice', verbose);
+		}
+
 		else if (removePopUp('div[data-portal-id="modal-portal-1"]', 'scrollDisabled'))
 			return outputDebug('data-portal-id["modal-portal-1"]', verbose);
 
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'], null, null, () => window.scrollTo({ top: 0, behavior: 'smooth' })))
 			return outputDebug('#sd-cmp', verbose);
+
+		else if (removePopUp('#public_post_contextual-sign-in', 'no-scroll'))
+			return outputDebug('#public_post_contextual-sign-in', verbose);
+
+		else if (document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]'))
+			document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]').click();
 
 		else if (removePopUp('body[style="overflow: hidden;"] div[role="presentation"],body[style="overflow: auto;clear177:true;"] div[role="presentation"]', null, 'overflow: auto;clear177:true;'))
 			return outputDebug('Generic modal who blocks scrolling', verbose);
