@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0132
+// @version      0.0133
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -124,8 +124,8 @@
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'], null, null, () => window.scrollTo({ top: 0, behavior: 'smooth' })))
 			return outputDebug('#sd-cmp', verbose);
 
-		else if (removePopUp('#public_post_contextual-sign-in', 'no-scroll'))
-			return outputDebug('#public_post_contextual-sign-in', verbose);
+		else if (removePopUp('#public_post_contextual-sign-in,#public_profile_contextual-sign-in', 'no-scroll'))
+			return outputDebug('#public_post_contextual-sign-in,#public_profile_contextual-sign-in', verbose);
 
 		else if (document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]'))
 			document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]').click();
