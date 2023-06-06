@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0003
+// @version      0.0004
 // @name         Youtube - Boycott Youtube Shorts for keep usefull features of the original video player
 // @description  Remove useless videos in subscriptions section who use the shameful format named "shorts" by youtube who remove lot of usefull feature like: scrowling in timeline, subtitles, speed, use more of 20% of my desktop screen for the video...
 // @author       lp177
@@ -16,13 +16,15 @@
 
 	function searchShorts()
 	{
-		const shortIcons=document.querySelectorAll('[overlay-style="SHORTS"]');
+		var max_parent_level;
+		const shortIcons=document.querySelectorAll('a[href^="/shorts/"]');
 		for (var shortIcon of shortIcons)
 		{
-			while(true)
+			max_parent_level=50;
+			while(max_parent_level-->0)
 			{
-				if(!shortIcon.tagName)break;
-				if(shortIcon.tagName.toLowerCase()=='ytd-grid-video-renderer')
+				if(!shortIcon||!shortIcon.tagName)break;
+				if(shortIcon.tagName.toLowerCase()=='ytd-rich-item-renderer')
 				{
 					shortIcon.remove();
 					console.info(shortIcon,'removed');
