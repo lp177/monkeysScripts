@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0134
+// @version      0.0135
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -11,11 +11,11 @@
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Global/delete_consent_tracking_popup.js
 // ==/UserScript==
 (function() {
-    'use strict';
+	'use strict';
 	function applyStyleAnPreserve(target, style)
 	{
-		setTimeout( ((target, style) => () => document.querySelector(target).setAttribute('style', style))(target, style), 10 );
-		setTimeout( ((target, style) => () => document.querySelector(target).setAttribute('style', style))(target, style), 1000 );
+		setTimeout(((target, style)=>()=> document.querySelector(target).setAttribute('style', style))(target, style), 10);
+		setTimeout(((target, style)=>()=> document.querySelector(target).setAttribute('style', style))(target, style), 1000);
 	}
 	function removeCssClass(classNames)
 	{
@@ -76,6 +76,13 @@
 		if(!removeCssClass(classNames) && --max_rearm > 0)
 			setTimeout(() => rearmRemoveCssClassUntilSuccess(classNames, max_rearm), 100);
 	}
+	function clickClose(selector)
+	{
+		if (!document.querySelector(selector))
+			return false;
+		document.querySelector(selector).click();
+		return true;
+	}
 	function launchAllDetection()
 	{
 		const verbose = true;
@@ -87,16 +94,16 @@
 		))
 			return outputDebug('Generic simple modal list', verbose);
 
+		else if (clickClose(
+			'#popin_tc_privacy_button_2,#footer_tc_privacy_button_3,.cookie-banner-content #wt-cli-reject-btn,#vidal_consent a[name="button-refuse"],#gdpr-reject-btn,.moove-gdpr-infobar-reject-btn,'
+			+'button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]'
+		))
+			return outputDebug('Generic clickClose', verbose);
+
 		else if (document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]'))
 		{
 			document.querySelector('#qc-cmp2-ui button + button[mode="secondary"]').click();
 			return removePopUp('didomi-popup-open');
-		}
-
-		else if (document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3'))
-		{
-			document.querySelector('#popin_tc_privacy_button_2,#footer_tc_privacy_button_3').click();
-			return outputDebug('tc_privacy', verbose);
 		}
 
 		else if (removePopUp('.qc-cmp2-container'))
@@ -121,14 +128,14 @@
 		else if (removePopUp('div[data-portal-id="modal-portal-1"]', 'scrollDisabled'))
 			return outputDebug('data-portal-id["modal-portal-1"]', verbose);
 
+		else if (removePopUp('#appconsent', 'appconsent_noscroll'))
+			return outputDebug('#appconsent', verbose);
+
 		else if (removePopUp('#sd-cmp', ['noscroll','sd-cmp-gF8Ho'], null, null, () => window.scrollTo({ top: 0, behavior: 'smooth' })))
 			return outputDebug('#sd-cmp', verbose);
 
 		else if (removePopUp('#public_post_contextual-sign-in,#public_profile_contextual-sign-in', 'no-scroll'))
 			return outputDebug('#public_post_contextual-sign-in,#public_profile_contextual-sign-in', verbose);
-
-		else if (document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]'))
-			document.querySelector('button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]').click();
 
 		else if (removePopUp('body[style="overflow: hidden;"] div[role="presentation"],body[style="overflow: auto;clear177:true;"] div[role="presentation"]', null, 'overflow: auto;clear177:true;'))
 			return outputDebug('Generic modal who blocks scrolling', verbose);
@@ -200,12 +207,6 @@
 				overlay.remove();
 			return outputDebug('#gdpr-privacy-settings', verbose);
 		}
-
-		else if (document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn'))
-			document.querySelector('#gdpr-reject-btn,.gdpr-reject-btn,.moove-gdpr-infobar-reject-btn').click();
-
-		else if (document.querySelector('#vidal_consent a[name="button-refuse"]'))
-			document.querySelector('#vidal_consent a[name="button-refuse"]').click();
 
 		else
 			document.querySelector('html').className.includes('sd-cmp') && document.querySelector('html').setAttribute('style', 'overflow:auto!important;');
