@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0135
+// @version      0.0134
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -88,15 +88,20 @@
 		const verbose = true;
 		if (removePopUp(
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
-				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container'
-				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner'
+				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay'
+				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
+				+',.cookieBanner,.consent-banner'
 				+',div[class*="DivCookieBannerContainer"]'
 		))
+		{
+			const body = document.querySelector('body[style]');
+			if(body&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
+				body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
 			return outputDebug('Generic simple modal list', verbose);
-
+		}
 		else if (clickClose(
-			'#popin_tc_privacy_button_2,#footer_tc_privacy_button_3,.cookie-banner-content #wt-cli-reject-btn,#vidal_consent a[name="button-refuse"],#gdpr-reject-btn,.moove-gdpr-infobar-reject-btn,'
-			+'button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"]'
+			'#popin_tc_privacy_button_2,#footer_tc_privacy_button_3,.cookie-banner-content #wt-cli-reject-btn,#vidal_consent a[name="button-refuse"],#gdpr-reject-btn,#cmpbox #cmpbntnotxt,'
+			+'.moove-gdpr-infobar-reject-btn,button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"],.cookiebanner__buttons__deny'
 		))
 			return outputDebug('Generic clickClose', verbose);
 
