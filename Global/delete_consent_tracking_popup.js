@@ -88,7 +88,7 @@
 		const verbose = true;
 		if (removePopUp(
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
-				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay'
+				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container'
 				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
 				+',.cookieBanner,.consent-banner'
 				+',div[class*="DivCookieBannerContainer"]'
