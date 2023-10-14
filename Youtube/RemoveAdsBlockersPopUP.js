@@ -11,10 +11,25 @@
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveAdsBlockersPopUP.js
 // ==/UserScript==
 
+var stats={savedUrl:null};
 function hide()
 {
-	if ( document.querySelector('#container.ytd-enforcement-message-view-model #dismiss-button') )
-	    document.querySelector('#container.ytd-enforcement-message-view-model #dismiss-button').remove()
+	var popup = q('ytd-popup-container tp-yt-paper-dialog button-view-model');
+	if (!popup||!popup.innerText.search('Ads'))
+		return false;
+	var max_move=0;
+	while(popup.tagName!='YTD-POPUP-CONTAINER'&&max_move++<100)
+		popup=popup.parentNode;
+	if(popup.tagName!='YTD-POPUP-CONTAINER')
+		return false;
+	popup.remove();
+	return true;
 }
-
-setInterval(hide, 1000);
+function execOnNewURL()
+{
+	if(window.location.href==stats.savedUrl)
+		return;
+	if(hide())
+		stats.savedUrl=window.location.href;
+}
+setInterval(execOnNewURL, 1000);
