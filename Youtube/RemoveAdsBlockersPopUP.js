@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         1.0003
+// @version         1.0004
 // @name            Youtube - Remove adblocker popup
 // @description     Remove the popup previous each video who say that ads blockers are forbidden
 // @include         /^http(s)?://(www\.)?youtube\.com/*
