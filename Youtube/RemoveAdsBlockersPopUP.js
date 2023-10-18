@@ -1,8 +1,8 @@
 // ==UserScript==
-// @version         1.0004
+// @version         1.0005
 // @name            Youtube - Remove adblocker popup
 // @description     Remove the popup previous each video who say that ads blockers are forbidden
-// @include         /^http(s)?://(www\.)?youtube\.com/*
+// @include         /^http(s)?://(www\.)?youtube\.com/watch?*
 // @grant        	none
 // @namespace    	lp177
 // @author       	lp177
@@ -14,7 +14,7 @@
 var stats={savedUrl:null};
 function hide()
 {
-	var popup = q('ytd-popup-container tp-yt-paper-dialog button-view-model');
+	var popup = document.querySelector('ytd-popup-container tp-yt-paper-dialog button-view-model');
 	if (!popup||!popup.innerText.search('Ads'))
 		return false;
 	var max_move=0;
