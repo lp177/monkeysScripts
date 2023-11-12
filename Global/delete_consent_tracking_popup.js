@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0134
+// @version      0.0135
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -88,8 +88,8 @@
 		const verbose = true;
 		if (removePopUp(
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
-				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container'
-				+',.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
+				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar'
+				+',#__consent.md-consent,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
 				+',.cookieBanner,.consent-banner'
 				+',div[class*="DivCookieBannerContainer"]'
 		))
@@ -224,3 +224,4 @@
 	setTimeout(launchAllDetection, 2000);
 	setTimeout(launchAllDetection, 5000);
 })();
+
