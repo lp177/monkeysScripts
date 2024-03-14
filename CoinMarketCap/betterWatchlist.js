@@ -7,8 +7,8 @@
 // @author       lp177
 // @match        https://coinmarketcap.com/fr/watchlist/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=coinmarketcap.com
-// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/coinmarketcap/betterWatchlist.js
-// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/coinmarketcap/betterWatchlist.js
+// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/CoinMarketCap/betterWatchlist.js
+// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/CoinMarketCap/betterWatchlist.js
 // ==/UserScript==
 
 (function() {
