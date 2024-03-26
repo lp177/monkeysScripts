@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0003
+// @version      0.0005
 // @name         Ubereat - Focus traking map, remove useless UI
 // @namespace    lp177
 // @author       lp177
@@ -43,6 +43,10 @@
 		}
 		if (document.querySelector('div[style="top:0!important;bottom:0!important;"]:has(svg)'))
 			document.querySelector('div[style="top:0!important;bottom:0!important;"]:has(svg)').remove();
+		if (document.querySelector('video[data-testid="video-html-player"]'))
+			document.querySelector('video[data-testid="video-html-player"]').remove();
+		if (document.querySelector('a[href^="/fr/feed?promoCode="]'))
+			document.querySelector('a[href^="/fr/feed?promoCode="]').remove();
 	}
     document.querySelector('head').insertAdjacentHTML(
 		'beforeend',
