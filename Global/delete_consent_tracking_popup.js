@@ -83,22 +83,28 @@
 		document.querySelector(selector).click();
 		return true;
 	}
+	function sheduleOverflowRepare(run_count = 0)
+	{
+		console.log("sheduleOverflowRepare");
+		const body = document.querySelector('body[style]');
+		if(body&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
+			return body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
+		if(document.querySelector('body.overflowHidden'))
+			return document.querySelector('body.overflowHidden').classList.remove('overflowHidden');
+		if (run_count < 30)
+			setTimeout(()=>sheduleOverflowRepare(run_count+1), 100);
+	}
 	function launchAllDetection()
 	{
 		const verbose = true;
 		if (removePopUp(
-				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container'
+				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root'
 				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar'
 				+',#__consent.md-consent,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
 				+',.cookieBanner,.consent-banner'
 				+',div[class*="DivCookieBannerContainer"]'
 		))
-		{
-			const body = document.querySelector('body[style]');
-			if(body&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
-				body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
 			return outputDebug('Generic simple modal list', verbose);
-		}
 		else if (clickClose(
 			'#popin_tc_privacy_button_2,#footer_tc_privacy_button_3,.cookie-banner-content #wt-cli-reject-btn,#vidal_consent a[name="button-refuse"],#gdpr-reject-btn,#cmpbox #cmpbntnotxt,'
 			+'.moove-gdpr-infobar-reject-btn,button[action-type="DENY"][data-tracking-control-name="ga-cookie.consent.deny.v4"],.cookiebanner__buttons__deny'
@@ -219,9 +225,9 @@
 		// Floating not wanted video popup
 		removePopUp('iframe.viously-iframe');
 	}
+	setTimeout(sheduleOverflowRepare, 100);
 	setTimeout(launchAllDetection, 300);
 	setTimeout(launchAllDetection, 1000);
 	setTimeout(launchAllDetection, 2000);
 	setTimeout(launchAllDetection, 5000);
 })();
-
