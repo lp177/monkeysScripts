@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0135
+// @version      0.0136
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -178,6 +178,14 @@
 			if(target)
 				target.remove();
 			return outputDebug('div[data-t="cookiesMessage"]', verbose);
+		}
+
+		else if (removePopUp('.privacy-consent--modal'))
+		{
+			const target = document.querySelector('.privacy-consent--backdrop');
+			if(target)
+				target.remove();
+			return outputDebug('.privacy-consent--modal', verbose);
 		}
 
 		else if (removePopUp('#cl-consent'))
