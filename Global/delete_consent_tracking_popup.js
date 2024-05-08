@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0137
+// @version      0.0138
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -85,11 +85,15 @@
 	}
 	function sheduleOverflowRepare(run_count = 0)
 	{
-		const body = document.querySelector('body[style]');
-		if(body&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
+		const body = document.querySelector('body');
+		if(body.hasAttribute('style')&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
 			return body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
-		if(document.querySelector('body.overflowHidden'))
-			return document.querySelector('body.overflowHidden').classList.remove('overflowHidden');
+		const class_to_remove_from_the_body = ['overflowHidden', 'noScroll', 'onetrust-no-scroll'];
+		for (let class_to_remove of class_to_remove_from_the_body)
+		{
+			if (body.classList.contains(class_to_remove))
+				return body.classList.remove(class_to_remove);
+		}
 		if (run_count < 30)
 			setTimeout(()=>sheduleOverflowRepare(run_count+1), 100);
 	}
