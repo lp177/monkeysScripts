@@ -1,14 +1,14 @@
 // ==UserScript==
-// @version      0.1201
-// @name         Chronopost - Alert on event tracking
-// @description  Display notification on each delivery status change
+// @version      0.1202
+// @name         Chronopost - Alert on event trackin
+// @description  Display notification on each delivery status changeg for chronopost
 // @author       lp177
 // @namespace    lp177
 // @grant        GM_notification
 // @match        https://www.chronopost.fr/tracking-no-cms/*
 // @icon         https://www.google.com/s2/favicons?domain=www.chronopost.fr
-// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/tracking_alert.js
-// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/tracking_alert.js
+// @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/chronopost_tracking_alert.js
+// @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/chronopost_tracking_alert.js
 // ==/UserScript==
 
 (function() {
@@ -45,6 +45,5 @@
 		  url: location.href
 		});
     }
-
     var pid = setInterval(alertOnChange, timeUntilTwoCheck * 1000);
 })();
