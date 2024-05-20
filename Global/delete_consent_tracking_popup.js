@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0138
+// @version      0.0139
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -104,7 +104,7 @@
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root'
 				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar'
 				+',#__consent.md-consent,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
-				+',.cookieBanner,.consent-banner'
+				+',.cookieBanner,.consent-banner,.stpd_cmp'
 				+',div[class*="DivCookieBannerContainer"]'
 		))
 			return outputDebug('Generic simple modal list', verbose);
