@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.1202
+// @version      0.1203
 // @name         Chronopost - Alert on event trackin
 // @description  Display notification on each delivery status changeg for chronopost
 // @author       lp177
@@ -44,6 +44,7 @@
 		  text: document.querySelector('#suiviTab tbody tr:nth-of-type(2) td:nth-of-type(2)').innerText,
 		  url: location.href
 		});
+		setTimeout(location.reload, timeUntilTwoCheck * 1000);
     }
     var pid = setInterval(alertOnChange, timeUntilTwoCheck * 1000);
 })();
