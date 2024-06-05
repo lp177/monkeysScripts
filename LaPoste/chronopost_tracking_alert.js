@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.1203
+// @version      0.1205
 // @name         Chronopost - Alert on event trackin
 // @description  Display notification on each delivery status changeg for chronopost
 // @author       lp177
@@ -29,10 +29,10 @@
 				'chronopost_alert_on_change.' + track_id,
 				document.querySelector('#suiviTab tbody tr:nth-of-type(2) td').innerText
 			);
-            return setTimeout(location.reload, timeUntilTwoCheck * 1000); //First load - Init history for next comparaison
+            return setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000); //First load - Init history for next comparaison
         }
         if (last_change_in_history === document.querySelector('#suiviTab tbody tr:nth-of-type(2) td').innerText)
-            return setTimeout(location.reload, timeUntilTwoCheck * 1000); //No change until last alert / first load
+            return setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000); //No change until last alert / first load
 
         // New event detected !
         localStorage.setItem(
@@ -44,7 +44,7 @@
 		  text: document.querySelector('#suiviTab tbody tr:nth-of-type(2) td:nth-of-type(2)').innerText,
 		  url: location.href
 		});
-		setTimeout(location.reload, timeUntilTwoCheck * 1000);
+		setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000);
     }
     var pid = setInterval(alertOnChange, timeUntilTwoCheck * 1000);
 })();

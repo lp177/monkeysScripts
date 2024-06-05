@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.1202
+// @version      0.1205
 // @name         LaPoste - Alert on event tracking
 // @description  Display notification on each delivery status change for colissimo
 // @author       lp177
@@ -46,5 +46,5 @@
 		});
     }
     var pid = setInterval(alertOnChange, 10 * 1000);
-	setTimeout(location.reload, timeUntilTwoCheck * 1000);
+	setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000);
 })();
