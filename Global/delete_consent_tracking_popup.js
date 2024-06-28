@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0139
+// @version      0.0141
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -88,7 +88,7 @@
 		const body = document.querySelector('body');
 		if(body.hasAttribute('style')&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
 			return body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
-		const class_to_remove_from_the_body = ['overflowHidden', 'noScroll', 'onetrust-no-scroll'];
+		const class_to_remove_from_the_body = ['overflowHidden', 'noScroll', 'onetrust-no-scroll', 'appconsent_noscroll'];
 		for (let class_to_remove of class_to_remove_from_the_body)
 		{
 			if (body.classList.contains(class_to_remove))
@@ -242,4 +242,3 @@
 	setTimeout(launchAllDetection, 2000);
 	setTimeout(launchAllDetection, 5000);
 })();
-
