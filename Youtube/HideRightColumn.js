@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         1.3216
+// @version         1.3217
 // @name            Youtube - Hide right column
 // @description     Hide right column of recommendations and those at the end of the video
 // @include         /^http(s)?://(www\.)?youtube\.com/*
@@ -30,8 +30,10 @@
 	{
 		apply_css('#related', 'display: none !important');
 		apply_css('#columns #secondary', 'display: none !important');
-		apply_css(['.ytp-chapter-hover-container','.ytp-chrome-bottom'], 'width:100%');
-		apply_css('video.video-stream', 'width: 100%;height: auto;left: 0px;top: 0px;');
+		// apply_css(['.ytp-chapter-hover-container','.ytp-chrome-bottom','.ytp-heat-map-chapter'], 'width:100%');
+		//apply_css('video.video-stream', 'width: 100%;height: auto;left: 0px;top: 0px;');
+		// window.dispatchEvent(new Event('resize'));
+		// setTimeout(()=>window.dispatchEvent(new Event('resize', {bubbles: true}), 100));
 	}
 
 	// content reloaded in ajax ?
