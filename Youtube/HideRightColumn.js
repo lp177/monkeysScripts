@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         1.3217
+// @version         2.0001
 // @name            Youtube - Hide right column
 // @description     Hide right column of recommendations and those at the end of the video
 // @include         /^http(s)?://(www\.)?youtube\.com/*
@@ -28,10 +28,17 @@
 	}
 	function hide()
 	{
-		apply_css('#related', 'display: none !important');
-		apply_css('#columns #secondary', 'display: none !important');
-		// apply_css(['.ytp-chapter-hover-container','.ytp-chrome-bottom','.ytp-heat-map-chapter'], 'width:100%');
-		//apply_css('video.video-stream', 'width: 100%;height: auto;left: 0px;top: 0px;');
+		apply_css('html', 'max-width:100%;x-overflow:hidden;font-size:10px;font-family:Roboto,Arial,sans-serif;');
+		apply_css('#related', 'display: none !important;');
+		apply_css(['#columns #secondary', '#chat-container'], 'display: none !important;');
+		let width=document.querySelector('.html5-video-player')?.clientWidth;
+		let height=document.querySelector('.html5-video-player')?.clientHeight;
+		if (!width||!height)return console.error('Fail to extract width&height for video player');
+		console.log('width: ', width, '\nheight:', height);
+		width = 'width:' + String(width) + 'px;';
+		height = 'height:' + String(height) + 'px;';
+		apply_css(['.ytp-chapter-hover-container','.ytp-chrome-bottom','.ytp-heat-map-chapter'], width);
+		apply_css('video.video-stream', width + height);
 		// window.dispatchEvent(new Event('resize'));
 		// setTimeout(()=>window.dispatchEvent(new Event('resize', {bubbles: true}), 100));
 	}
@@ -44,5 +51,15 @@
 		time += 100;
 		setTimeout(hide, time);
 	}
+	function debounce(func, delay)
+	{
+		let timeoutId;
+		return function(...args)
+		{
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => func.apply(this, args), delay);
+	  	};
+	}
+	window.addEventListener('resize', debounce(hide, 250));
 
 })();
