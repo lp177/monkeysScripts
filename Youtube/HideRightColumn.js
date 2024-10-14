@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         2.0002
+// @version         2.0003
 // @name            Youtube - Hide right column
 // @description     Hide right column of recommendations and those at the end of the video
 // @include         /^http(s)?://(www\.)?youtube\.com/*
@@ -17,7 +17,7 @@
 	{
 		if (typeof(selector) != 'string')
 		{
-			for (let select of selector)
+			for (const select of selector)
 				apply_css(select, css);
 			return;
 		}
@@ -31,13 +31,14 @@
 		apply_css('html', 'max-width:100%;x-overflow:hidden;font-size:10px;font-family:Roboto,Arial,sans-serif;');
 		apply_css('#related', 'display: none !important;');
 		apply_css(['#columns #secondary', '#chat-container'], 'display: none !important;');
-		let width=document.querySelector('.html5-video-player')?.clientWidth;
-		let height=document.querySelector('.html5-video-player')?.clientHeight;
-		if (!width||!height)return console.error('Fail to extract width&height for video player');
-		console.log('width: ', width, '\nheight:', height);
+		let width=document.querySelector('.video-stream.html5-main-video')?.clientWidth;
+		let height=document.querySelector('.video-stream.html5-main-video')?.clientHeight;
+		if (height>=width)return;// console.error('Avoid video deformation');
+		width=document.querySelector('.html5-video-player')?.clientWidth;
+		height=document.querySelector('.html5-video-player')?.clientHeight;
+		if (!width||!height)return;// console.error('Fail to extract width&height for video player');
 		width = 'width:' + String(width) + 'px;';
 		height = 'height:' + String(height) + 'px;';
-		//apply_css(['.ytp-chapter-hover-container','.ytp-chrome-bottom','.ytp-heat-map-chapter'], width);
 		apply_css('video.video-stream', width + height);
 	}
 
