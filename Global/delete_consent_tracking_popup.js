@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0146
+// @version      0.0147
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -7,6 +7,7 @@
 // @match        http://*/*
 // @match        https://*/*
 // @grant        none
+// @tag          global, UI
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Global/delete_consent_tracking_popup.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Global/delete_consent_tracking_popup.js
 // ==/UserScript==
@@ -88,7 +89,7 @@
 		const body = document.querySelector('body');
 		if(body.hasAttribute('style')&&body.getAttribute('style').indexOf('overflow: hidden')>-1)
 			return body.setAttribute('style', body.getAttribute('style').replace('overflow: hidden', ''));
-		const class_to_remove_from_the_body = ['overflowHidden', 'noScroll', 'onetrust-no-scroll', 'appconsent_noscroll'];
+		const class_to_remove_from_the_body = ['overflowHidden', 'overflow-hidden', 'noScroll', 'onetrust-no-scroll', 'appconsent_noscroll'];
 		for (let class_to_remove of class_to_remove_from_the_body)
 		{
 			if (body.classList.contains(class_to_remove))
@@ -101,10 +102,10 @@
 	{
 		const verbose = true;
 		if (removePopUp(
-				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root'
+				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#privacy-cookie-banners-root,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root'
 				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar,#cookie-consent'
 				+',#__consent.md-consent,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
-				+',.cookieBanner,.consent-banner,.cookie-permission-container,.stpd_cmp,div[data-name="mediavine-gdpr-cmp"],.cky-consent-container'
+				+',.cookieBanner,.consent-banner,.cookie-permission-container,.wt-cli-cookie-bar-container,.stpd_cmp,div[data-name="mediavine-gdpr-cmp"],.cky-consent-container'
 				+',div[class*="DivCookieBannerContainer"],div[data-test-id="cookie-modal"]'
 		))
 			return outputDebug('Generic simple modal list', verbose);
@@ -241,5 +242,6 @@
 	setTimeout(launchAllDetection, 1000);
 	setTimeout(launchAllDetection, 2000);
 	setTimeout(launchAllDetection, 5000);
+	setTimeout(launchAllDetection, 10000);
+	setTimeout(launchAllDetection, 15000);
 })();
-
