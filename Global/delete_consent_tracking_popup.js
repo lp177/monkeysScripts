@@ -105,7 +105,7 @@
 				'#onetrust-consent-sdk,#cookiebanner,#privacy-consent,#CybotCookiebotDialog,#privacy-cookie-banners-root,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root'
 				+',#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar,#cookie-consent'
 				+',#__consent.md-consent,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container'
-				+',.cookieBanner,.consent-banner,.cookie-permission-container,.wt-cli-cookie-bar-container,.stpd_cmp,div[data-name="mediavine-gdpr-cmp"],.cky-consent-container'
+				+',.cookieBanner,.consent-banner,.spicy-consent-wrapper,.cookie-permission-container,.wt-cli-cookie-bar-container,.stpd_cmp,div[data-name="mediavine-gdpr-cmp"],.cky-consent-container'
 				+',div[class*="DivCookieBannerContainer"],div[data-test-id="cookie-modal"]'
 		))
 			return outputDebug('Generic simple modal list', verbose);
@@ -245,3 +245,4 @@
 	setTimeout(launchAllDetection, 10000);
 	setTimeout(launchAllDetection, 15000);
 })();
+
