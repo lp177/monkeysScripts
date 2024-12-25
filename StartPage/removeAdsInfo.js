@@ -8,9 +8,9 @@
 // @icon         https://www.google.com/s2/favicons?domain=startpage.com
 // @grant        none
 // ==/UserScript==
-
-(function() {
-	'use strict';
-	if(document.querySelector('.show-results #main svg path[d="M11 1 1 11M1 1l10 10"]'))
-		document.querySelector('.show-results #main svg path[d="M11 1 1 11M1 1l10 10"]').parentNode.parentNode.click();
+(function () {
+    "use strict";
+    document
+        .querySelector('.show-results #main svg path[d="M11 1 1 11M1 1l10 10"]')
+        ?.parentNode?.parentNode?.click();
 })();

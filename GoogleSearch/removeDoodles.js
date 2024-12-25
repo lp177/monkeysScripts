@@ -11,9 +11,5 @@
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleSearch/removeDoodles.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleSearch/removeDoodles.js
 // ==/UserScript==
-
-if ( document.querySelector( 'span.ctr-p a img' ) )
-	document.querySelector( 'span.ctr-p a img' ).remove();
-
-if ( document.querySelector( 'div#prm-pt' ) )
-	document.querySelector( 'div#prm-pt' ).remove();
+document.querySelector("span.ctr-p a img")?.remove();
+document.querySelector("div#prm-pt")?.remove();

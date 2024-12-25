@@ -10,13 +10,8 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Django/sang_pour_sang_django.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Django/sang_pour_sang_django.js
 // ==/UserScript==
-
-(function() {
-    'use strict';
-
-    if ( document.querySelector( 'div[role="main"]' ) )
-		document.querySelector( 'div[role="main"]' ).style = 'width: 100%;';
-
-	if ( document.querySelector( '#version-switcher' ) )
-		document.querySelector( '#version-switcher' ).style = 'position: unset';
+(function () {
+    "use strict";
+    document.querySelector('div[role="main"]')?.style = "width: 100%;";
+    document.querySelector("#version-switcher")?.style = "position: unset";
 })();

@@ -8,9 +8,8 @@
 // @icon         https://www.google.com/s2/favicons?domain=netflix.com
 // @grant        none
 // ==/UserScript==
-
-(function() {
-    'use strict';
-	if(document.querySelector('h1.profile-gate-label'))
-		document.querySelector('.profile-link').click()
+(function () {
+    "use strict";
+    if (document.querySelector("h1.profile-gate-label"))
+        document.querySelector(".profile-link").click();
 })();

@@ -10,34 +10,28 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveShorts.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveShorts.js
 // ==/UserScript==
-
-(function() {
-    'use strict';
-
-	function searchShorts()
-	{
-		var max_parent_level;
-		const shortIcons=document.querySelectorAll('a[href^="/shorts/"]');
-		for (var shortIcon of shortIcons)
-		{
-			max_parent_level=50;
-			while(max_parent_level-->0)
-			{
-				if(!shortIcon||!shortIcon.tagName)break;
-				if(shortIcon.tagName.toLowerCase()=='ytd-rich-item-renderer')
-				{
-					shortIcon.remove();
-					console.info(shortIcon,'removed');
-				}
-				else if(shortIcon.parentNode)
-				{
-					shortIcon=shortIcon.parentNode;
-					continue;
-				}
-				break;
-			}
-		}
-		setTimeout(searchShorts, 3000);
-	}
-	setTimeout(searchShorts, 1000);
+(function () {
+    "use strict";
+    function searchShorts() {
+        var max_parent_level;
+        const shortIcons = document.querySelectorAll('a[href^="/shorts/"]');
+        for (var shortIcon of shortIcons) {
+            max_parent_level = 50;
+            while (max_parent_level-- > 0) {
+                if (!shortIcon || !shortIcon.tagName) break;
+                if (
+                    shortIcon.tagName.toLowerCase() == "ytd-rich-item-renderer"
+                ) {
+                    shortIcon.remove();
+                    console.info(shortIcon, "removed");
+                } else if (shortIcon.parentNode) {
+                    shortIcon = shortIcon.parentNode;
+                    continue;
+                }
+                break;
+            }
+        }
+        setTimeout(searchShorts, 3000);
+    }
+    setTimeout(searchShorts, 1000);
 })();

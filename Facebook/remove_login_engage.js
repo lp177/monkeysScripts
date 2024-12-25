@@ -10,8 +10,9 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Facebook/remove_login_engage.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Facebook/remove_login_engage.js
 // ==/UserScript==
-(function() {
-    'use strict';
-    if ( document.querySelector( '#headerArea, #pagelet_growth_expanding_cta' ) )
-		document.querySelector( '#headerArea, #pagelet_growth_expanding_cta' ).remove();
+(function () {
+    "use strict";
+    document
+        .querySelector("#headerArea, #pagelet_growth_expanding_cta")
+        ?.remove();
 })();

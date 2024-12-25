@@ -10,20 +10,19 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/CoinMarketCap/betterWatchlist.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/CoinMarketCap/betterWatchlist.js
 // ==/UserScript==
-
-(function() {
-    'use strict';
-    document.querySelector('head').insertAdjacentHTML(
-		'beforeend',
-		`<style type="text/css">
-			.cmc-watchlist{
-				max-width:none;
-			}
-			div:has(>#cmc-cookie-policy-banner)
-			{
-				display:none;
-			}
-		</style>`
-	);
-	window.scrollTo({ top: 310, left: 0, behavior: 'smooth' });
+(function () {
+    "use strict";
+    document.querySelector("head").insertAdjacentHTML(
+        "beforeend",
+        `<style type="text/css">
+            .cmc-watchlist{
+                max-width:none;
+            }
+            div:has(>#cmc-cookie-policy-banner)
+            {
+                display:none;
+            }
+        </style>`,
+    );
+    window.scrollTo({ top: 310, left: 0, behavior: "smooth" });
 })();

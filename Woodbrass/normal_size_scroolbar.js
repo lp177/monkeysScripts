@@ -10,8 +10,10 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Woodbrass/normal_size_scroolbar.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Woodbrass/normal_size_scroolbar.js
 // ==/UserScript==
-
-(function() {
-    'use strict';
-    document.head.insertAdjacentHTML( 'beforeend', '<style>body::-webkit-scrollbar{width:10px !important;}</style>' )
+(function () {
+    "use strict";
+    document.head.insertAdjacentHTML(
+        "beforeend",
+        "<style>body::-webkit-scrollbar{width:10px !important;}</style>",
+    );
 })();

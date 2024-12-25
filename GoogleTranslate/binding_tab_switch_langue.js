@@ -10,35 +10,28 @@
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleTranslate/binding_tab_switch_langue.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleTranslate/binding_tab_switch_langue.js
 // ==/UserScript==
-
-function dispatchMouseEvent( target, var_args )
-{
-    var e = document.createEvent( 'MouseEvents' );
-    e.initEvent.apply( e, Array.prototype.slice.call( arguments, 1 ) );
-    target.dispatchEvent( e );
+function dispatchMouseEvent(target, var_args) {
+    var e = document.createEvent("MouseEvents");
+    e.initEvent.apply(e, Array.prototype.slice.call(arguments, 1));
+    target.dispatchEvent(e);
 }
-
-function switchLang( e )
-{
-    const targetedBT = document.evaluate("//i[text()='swap_horiz']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-
-    if (e.keyCode != 9 || ! targetedBT )
-        return false;
-
+function switchLang(e) {
+    const targetedBT = document.evaluate(
+        "//i[text()='swap_horiz']",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null,
+    ).singleNodeValue;
+    if (e.keyCode != 9 || !targetedBT) return false;
     e.preventDefault();
-
-    dispatchMouseEvent( targetedBT, 'mousedown', true, true );
-    dispatchMouseEvent( targetedBT, 'mouseup', true, true );
-    dispatchMouseEvent( targetedBT, 'click', true, true );
-
+    dispatchMouseEvent(targetedBT, "mousedown", true, true);
+    dispatchMouseEvent(targetedBT, "mouseup", true, true);
+    dispatchMouseEvent(targetedBT, "click", true, true);
     return false;
 }
-
-function eventMap()
-{
-    document.body.addEventListener( 'keydown', switchLang, false );
+function eventMap() {
+    document.body.addEventListener("keydown", switchLang, false);
 }
-
-setInterval( eventMap, 10000 );
-
+setInterval(eventMap, 10000);
 eventMap();

@@ -10,11 +10,13 @@
 // @downloadURL         https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/history_links_improve.js
 // @updateURL           https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/history_links_improve.js
 // ==/UserScript==
-(function() {
-    'use strict';
-	for (let link of document.querySelectorAll('a[href$="#addReview"]'))
-	{
-		link.setAttribute('href',link.getAttribute('href').replace('#addReview',''));
-		link.innerText='Détailles';
-	}
+(function () {
+    "use strict";
+    for (let link of document.querySelectorAll('a[href$="#addReview"]')) {
+        link.setAttribute(
+            "href",
+            link.getAttribute("href").replace("#addReview", ""),
+        );
+        link.innerText = "Détailles";
+    }
 })();

@@ -10,41 +10,52 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/colissimo_tracking_alert.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/LaPoste/colissimo_tracking_alert.js
 // ==/UserScript==
-
-(function() {
-    'use strict';
-
+(function () {
+    "use strict";
     const timeUntilTwoCheck = 60;
-
     async function alertOnChange() {
-		const wrapper=document.querySelector('wc-sun');
-        if (!wrapper || !wrapper.getAttribute('data-shipments'))
-            return; // Nothing to track avoid to refresh without track id
+        const wrapper = document.querySelector("wc-sun");
+        if (!wrapper || !wrapper.getAttribute("data-shipments")) return; // Nothing to track avoid to refresh without track id
 
-        const track_id = wrapper.getAttribute('data-shipments');
-        const last_saved_value = localStorage.getItem('colisimo_alert_on_change.' + track_id);
-
-		//First load - Init history for next comparaison
+        const track_id = wrapper.getAttribute("data-shipments");
+        const last_saved_value = localStorage.getItem(
+            "colisimo_alert_on_change." + track_id,
+        );
+        //First load - Init history for next comparaison
         if (last_saved_value === null)
             return localStorage.setItem(
-				'colisimo_alert_on_change.' + track_id,
-				document.querySelector('wc-sun').shadowRoot.querySelector('.MuiCollapse-wrapperInner p').innerText
-			);
-		//No change until last alert / first load
-        if (last_saved_value === document.querySelector('wc-sun').shadowRoot.querySelector('.MuiCollapse-wrapperInner p').innerText)
+                "colisimo_alert_on_change." + track_id,
+                document
+                    .querySelector("wc-sun")
+                    .shadowRoot.querySelector(".MuiCollapse-wrapperInner p")
+                    .innerText,
+            );
+        //No change until last alert / first load
+        if (
+            last_saved_value ===
+            document
+                .querySelector("wc-sun")
+                .shadowRoot.querySelector(".MuiCollapse-wrapperInner p")
+                .innerText
+        )
             return;
-
         // New event detected !
         localStorage.setItem(
-			'colisimo_alert_on_change.' + track_id,
-			document.querySelector('wc-sun').shadowRoot.querySelector('.MuiCollapse-wrapperInner p').innerText
-		);
-		GM_notification({
-		  title: "LaPoste Traking",
-		  text: document.querySelector('wc-sun').shadowRoot.querySelector('.MuiCollapse-wrapperInner p').innerText,
-		  url: location.href
-		});
+            "colisimo_alert_on_change." + track_id,
+            document
+                .querySelector("wc-sun")
+                .shadowRoot.querySelector(".MuiCollapse-wrapperInner p")
+                .innerText,
+        );
+        GM_notification({
+            title: "LaPoste Traking",
+            text: document
+                .querySelector("wc-sun")
+                .shadowRoot.querySelector(".MuiCollapse-wrapperInner p")
+                .innerText,
+            url: location.href,
+        });
     }
     var pid = setInterval(alertOnChange, 10 * 1000);
-	setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000);
+    setTimeout(location.reload.bind(window.location), timeUntilTwoCheck * 1000);
 })();

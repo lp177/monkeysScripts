@@ -10,23 +10,23 @@
 // @grant        none
 // @run-at      document-start
 // ==/UserScript==
-
-(function() {
-    'use strict';
-	function disable(max_retry=60)
-	{
-		const h=document.querySelector('html[hc]');
-		if(!h&&max_retry>0)return setTimeout(()=>disable(max_retry-1),100);
-		h.removeAttribute('hc');
+(function () {
+	"use strict";
+	function disable(max_retry = 60) {
+		const h = document.querySelector("html[hc]");
+		if (!h && max_retry > 0)
+			return setTimeout(() => disable(max_retry - 1), 100);
+		h.removeAttribute("hc");
 	}
-	var observer = new MutationObserver(function(mutations)
-	{
-		mutations.forEach(mutation=>(mutation.type==='attributes')?disable():undefined);
+	var observer = new MutationObserver(function (mutations) {
+		mutations.forEach((mutation) =>
+			mutation.type === "attributes" ? disable() : undefined,
+		);
 	});
-	observer.observe(document.querySelector('html'),{attributes:true});
+	observer.observe(document.querySelector("html"), { attributes: true });
 	disable();
-	setTimeout(()=>disable(max_retry=0),1);
-	setTimeout(()=>disable(max_retry=0),5);
-	setTimeout(()=>disable(max_retry=0),10);
-	setTimeout(()=>disable(max_retry=100),100);
+	setTimeout(() => disable((max_retry = 0)), 1);
+	setTimeout(() => disable((max_retry = 0)), 5);
+	setTimeout(() => disable((max_retry = 0)), 10);
+	setTimeout(() => disable((max_retry = 100)), 100);
 })();

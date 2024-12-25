@@ -10,7 +10,7 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Amazon/refresh_automatic_tracking_page.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Amazon/refresh_automatic_tracking_page.js
 // ==/UserScript==
-(function() {
-    'use strict';
-    setTimeout(window.location.reload.bind(window.location),180000);
+(function () {
+    "use strict";
+    setTimeout(window.location.reload.bind(window.location), 180000);
 })();
