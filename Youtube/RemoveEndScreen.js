@@ -10,8 +10,7 @@
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveEndScreen.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveEndScreen.js
 // ==/UserScript==
-function hide()
-{
-    document.querySelector('.videowall-endscreen')..remove()
+function hide() {
+    document.querySelector(".videowall-endscreen")?.remove();
 }
 setInterval(hide, 1000);
