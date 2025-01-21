@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0148
+// @version      0.0149
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -148,7 +148,7 @@
         if (
             removePopUp(
                 "#onetrust-consent-sdk,#cookiebanner,#cookies,#privacy-consent,#CybotCookiebotDialog,#privacy-cookie-banners-root,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root" +
-                    ",#consent_blackbar,#ez-cookie-dialog-wrapper,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar,#cookie-consent" +
+                    ",#consent_blackbar,#_th-trust,#ez-cookie-dialog-wrapper,#aos-Cookie-Modal,#__tealiumGDPRecModal,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar,#cookie-consent" +
                     ",#__consent.md-consent,#onetrust-consent-sdk,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container" +
                     ",.cmp-popin,.cookieBanner,.consent-banner,.spicy-consent-wrapper,.cookie-permission-container,.mod-cookie-consent,.wt-cli-cookie-bar-container,.stpd_cmp,div[data-name='mediavine-gdpr-cmp'],.cky-consent-container" +
                     ",div[class*='DivCookieBannerContainer'],div[data-test-id='cookie-modal']",
@@ -313,3 +313,4 @@
     setTimeout(launchAllDetection, 10000);
     setTimeout(launchAllDetection, 15000);
 })();
+
