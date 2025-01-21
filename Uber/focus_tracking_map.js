@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      1.00002
+// @version      1.00003
 // @name         Ubereat - Focus traking map, remove useless UI, notify on delivery status change
 // @namespace    lp177
 // @author       lp177
@@ -10,6 +10,7 @@
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Uber/focus_tracking_map.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Uber/focus_tracking_map.js
 // @grant        GM_notification
+// @run-at document-idle
 // ==/UserScript==
 (function () {
     "use strict";
@@ -57,15 +58,7 @@
                 .querySelector("#main-content > div")
                 ?.setAttribute("style", "max-width:250px;");
         }
-        document
-            .querySelector(
-                'div[style="top:0!important;bottom:0!important;"]:has(svg)',
-            )
-            ?.remove();
-        document
-            .querySelector('video[data-testid="video-html-player"]')
-            ?.remove();
-        document.querySelector('a[href^="/fr/feed?promoCode="]')?.remove();
+        document.querySelector('a[href^="/fr/feed?promoCode="],a[href^="https://one-time-offer.com/"]')?.remove();
     }
     document
         .querySelector("head")
@@ -73,20 +66,25 @@
             "beforeend",
             `<style type="text/css" id="injected177">div[style="user-select: none; pointer-events: all;"] > div{box-shadow: 0 0 10px 10px green !important;}</style>`,
         );
-    document.querySelector("body").setAttribute("style", "overflow:hidden");
-    update();
-    window.setInterval(notifyStatusChange, 3000);
-    window.setTimeout(update, 300);
-    window.setTimeout(update, 1000);
-    window.setTimeout(update, 3000);
-    window.setTimeout(() => {
-        highlightableItemsCount = countItemsHighlightable();
-    }, 20000);
-    window.setTimeout(refreshIfCountItemsHighlightableChange, 25000);
-    window.setTimeout(
-        window.location.reload.bind(window.location),
-        document.body.innerText.search("Commande en cours de préparation…") < 1
-            ? 60000
-            : 20000,
-    );
+	function init()
+	{
+		document.querySelector("body").setAttribute("style", "overflow:hidden");
+		update();
+		window.setTimeout(update, 300);
+		window.setTimeout(update, 1000);
+		window.setTimeout(update, 3000);
+		window.setInterval(notifyStatusChange, 3000);
+		window.setTimeout(() => {
+			highlightableItemsCount = countItemsHighlightable();
+		}, 20000);
+		window.setTimeout(refreshIfCountItemsHighlightableChange, 25000);
+		window.setTimeout(
+			window.location.reload.bind(window.location),
+			document.body.innerText.search("Commande en cours de préparation…") < 1
+				? 60000
+				: 20000,
+		);
+	}
+	window.setTimeout(init, 5000);
 })();
+
