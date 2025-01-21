@@ -85,6 +85,6 @@
 				: 20000,
 		);
 	}
-	window.setTimeout(init, 5000);
+	window.setTimeout(init, 500);
 })();
 
