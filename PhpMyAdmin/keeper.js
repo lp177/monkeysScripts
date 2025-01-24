@@ -3,9 +3,10 @@
 // @description     Keep connection open by reloading shema
 // @author          lp177
 // @namespace       lp177
-// @version         1.0002
+// @version         1.0003
 // @match           http://127.0.0.1/phpmyadmin/*
 // @grant           none
+// @icon         	https://www.google.com/s2/favicons?domain=www.phpmyadmin.net
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/PhpMyAdmin/keeper.js
 // ==/UserScript==
@@ -21,3 +22,4 @@
         delay,
     );
 })();
+

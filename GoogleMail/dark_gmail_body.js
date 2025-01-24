@@ -6,7 +6,7 @@
 // @grant        none
 // @namespace    lp177
 // @author       lp177
-// @icon         https://www.google.com/s2/favicons?domain=mail.google.com
+// @icon         https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/GoogleMail/dark_gmail_body.js
 // ==/UserScript==
