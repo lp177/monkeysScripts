@@ -1,16 +1,20 @@
 // ==UserScript==
-// @version      2024-11-01
+// @version      2025-03-08
 // @name         Medium - Add freedium link
 // @description  Add freedium link on medium page
+// @tag          paywall
 // @namespace    lp177
 // @author       lp177
-// @match        https://medium.com/*
-// @match        https://javascript.plainenglish.io/*
-// @match        https://levelup.gitconnected.com/*
-// @match        https://itnext.io/*
-// @tag          paywall
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @grant        none
+// @match        https://blog.gopenai.com/*
+// @match        https://blog.stackademic.com/*
+// @match        https://generativeai.pub/*
+// @match        https://javascript.plainenglish.io/*
+// @match        https://itnext.io/*
+// @match        https://levelup.gitconnected.com/*
+// @match        https://medium.com/*
+// @match        https://theexpertdeveloper.medium.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @downloadURL  https://raw.githubusercontent.com/lp177/monkeysScripts/master/Freedium/medium.js
 // @updateURL    https://raw.githubusercontent.com/lp177/monkeysScripts/master/Freedium/medium.js
 // ==/UserScript==
