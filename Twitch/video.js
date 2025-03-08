@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      1.002
+// @version      1.003
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player... Click on timed bonus (icon of chest at left of chat input) automaticaly.
 // @author       lp177
@@ -68,7 +68,7 @@
             .querySelector(
                 'nav[data-a-target="top-nav-container"] svg path[d="M10.114 9.622 11 7 7.175 9.323a.382.382 0 0 0 .013.65l.698.405L7 13l3.825-2.323a.382.382 0 0 0-.012-.65l-.699-.405z"]',
             )
-            ?.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+            ?.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
         if (stats.switcherPaused) return;
         if (window.location.href !== stats.savedUrl) {
             stats.savedUrl = window.location.href;
