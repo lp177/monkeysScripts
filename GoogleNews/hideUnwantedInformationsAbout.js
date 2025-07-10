@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0005
+// @version      0.0006
 // @name         Google news - Remove clickbait by forbidden keyword in tittle, and remove unwanted section by name
 // @description  Remove google news articles where title match on forbidden list of words and sections of articles who matching with unwantedSections list of names
 // @author       lp177
@@ -15,27 +15,26 @@
     "use strict";
     var unwantedSections = [
         "Sports",
-        "Divertissement",
-        "Économie",
-        "Pour vous",
-    ];
+        "People",
+        "Football",
+        "Auto",
+        "Cuisine",
+	];
     const forbiddensKeywords = [
         "samsung",
         "xiaomi",
-        "cac 40",
         "iphone",
-        "stock PS5",
         "disparition",
         "disparue",
         "enlèvement",
         "sondage",
-        "tpmp",
         "viol",
         "drame",
         "hommage",
         "décèdé",
         "décède",
         "décédé",
+		"meurent",
         "popularité",
         "conjoint",
         "extorqué",
@@ -45,34 +44,33 @@
         "obsèque",
         "inceste",
         "chauffard",
-        "darmanin",
-        "douard philippe",
-        "procès des attentats du 13 Novembre",
-        "manuel valls",
-        "trump",
-        "blanquer",
-        "véran ",
-        "castex",
-        "gabriel attal",
-        "zemmour",
     ];
+	function search_cwiz_element(element, max_level = 10)
+	{
+		while (max_level-- > 0)
+		{
+			if (element==null)
+				return;
+			if (element.parentNode?.tagName.toUpperCase() === "C-WIZ")
+				return element.parentNode;
+			element = element.parentNode;
+		}
+	}
     function filterArticles() {
         var title_txt;
         for (let title of document.querySelectorAll("article a")) {
-            title_txt = title.hasAttribute("aria-label")
-                ? title.getAttribute("aria-label")
-                : title.innerText;
             if (
                 forbiddensKeywords.some((v) =>
-                    title_txt.toLowerCase().includes(v.toLowerCase()),
+                    title.innerText.toLowerCase().includes(v.toLowerCase()),
                 )
             ) {
+				let element = search_cwiz_element(title);
                 console.info(
                     "Removed: ",
-                    title_txt,
-                    title.parentNode.parentNode.parentNode.parentNode,
+                    title.innerText,
+                    element,
                 );
-                title.parentNode.parentNode.parentNode.parentNode.remove();
+                element?.remove();
             }
         }
     }
@@ -83,7 +81,7 @@
         }
         for (const sectionName of unwantedSections) {
             let targetedSectionTitle = document.evaluate(
-                ".//h2/span/a[text()='" +
+                ".//c-wiz//h2/a[text()='" +
                     sectionName +
                     "']|.//c-wiz//h3/a[text()='" +
                     sectionName +
@@ -93,39 +91,20 @@
                 XPathResult.FIRST_ORDERED_NODE_TYPE,
                 null,
             ).singleNodeValue;
-            if (!targetedSectionTitle) {
-                console.log("Section ", sectionName, "Not found");
+            if (!targetedSectionTitle)
                 continue;
-            }
             if (unwantedSections.indexOf(sectionName) != -1)
                 unwantedSections.splice(
                     unwantedSections.indexOf(sectionName),
                     1,
                 );
-            let targetedSectionStart = document.evaluate(
-                ".//c-wiz//h3/a[text()='" + sectionName + "']",
-                document,
-                null,
-                XPathResult.FIRST_ORDERED_NODE_TYPE,
-                null,
-            );
-            if (targetedSectionStart && targetedSectionStart.singleNodeValue) {
-                targetedSectionStart.singleNodeValue.parentNode.parentNode.parentNode.parentNode.remove();
-                continue;
-            }
-            targetedSectionStart = document.evaluate(
-                ".//h2/span/a[text()='" + sectionName + "']",
-                document,
-                null,
-                XPathResult.FIRST_ORDERED_NODE_TYPE,
-                null,
-            ).singleNodeValue.parentNode.parentNode.parentNode.parentNode;
-            while (
-                targetedSectionStart.nextSibling &&
-                !targetedSectionStart.nextSibling.querySelector("h2")
-            )
-                targetedSectionStart.nextSibling.remove();
-            console.log("Section ", sectionName, " removed");
+            let element = search_cwiz_element(targetedSectionTitle)
+			console.info(
+				"Removed: ",
+				targetedSectionTitle.innerText,
+				element,
+			);
+			element?.remove();
         }
     }
     function removeSideSugestions() {
@@ -140,3 +119,4 @@
     setInterval(removeSideSugestions, 1000);
     var removeSectionSetIntervalId = setInterval(removeSection, 1000);
 })();
+
