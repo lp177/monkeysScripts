@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         1.0003
+// @version         1.0004
 // @name            Youtube - Remove end screen
 // @description     Remove the video proposals wall displayed at the end of each video on Youtube
 // @include         /^http(s)?://(www\.)?youtube\.com/*
@@ -10,7 +10,8 @@
 // @downloadURL     https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveEndScreen.js
 // @updateURL       https://raw.githubusercontent.com/lp177/monkeysScripts/master/Youtube/RemoveEndScreen.js
 // ==/UserScript==
-function hide() {
-    document.querySelector(".videowall-endscreen")?.remove();
+function hide()
+{
+    document.querySelector('.videowall-endscreen,.ytp-fullscreen-grid')?.remove()
 }
 setInterval(hide, 1000);
