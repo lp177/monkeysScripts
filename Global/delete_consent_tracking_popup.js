@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      0.0149
+// @version      0.0151
 // @name         Consent tracking remover
 // @description  Delete automaticaly all generic pop up who query consent for tracking you like RGPD / cookies settings.
 // @namespace    lp177
@@ -145,13 +145,15 @@
     }
     function launchAllDetection() {
         const verbose = true;
+		if (clickClose("button[data-tracking-name='cookie-preferences-mloi-initial-opt-out']"))
+			return outputDebug("Priority clickClose", verbose);
         if (
             removePopUp(
                 "#onetrust-consent-sdk,#cookiebanner,#cookies,#privacy-consent,#CybotCookiebotDialog,#privacy-cookie-banners-root,#dpr-manager,#axeptio_overlay,#gdpr-consent,#js-message-register,#tae-cookie-notice,#consent-manager-container,#usercentrics-root" +
                     ",#consent_blackbar,#_th-trust,#ez-cookie-dialog-wrapper,#aos-Cookie-Modal,#__tealiumGDPRecModal,#popup-accept-cookies,#cmp-app-container,#CybotCookiebotDialogBodyUnderlay,#cookie-banner,#cmplz-cookiebanner-container,#cookie-law-info-bar,#cookie-consent" +
-                    ",#__consent.md-consent,#onetrust-consent-sdk,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container" +
-                    ",.cmp-popin,.cookieBanner,.consent-banner,.spicy-consent-wrapper,.cookie-permission-container,.mod-cookie-consent,.wt-cli-cookie-bar-container,.stpd_cmp,div[data-name='mediavine-gdpr-cmp'],.cky-consent-container" +
-                    ",div[class*='DivCookieBannerContainer'],div[data-test-id='cookie-modal']",
+                    ",#__consent.md-consent,#onetrust-consent-sdk,.eu-cookie-compliance-banner,.js-consent-banner,.cookie-banner,.cookie-banner-layer,.cookie-consent,.cookie-policy,.incentive-banner,.gdpr-settings,.fig-consent-banner,.global-site-notice.notice-cookie,.cookie-card_container" +
+                    ",.cmp-popin,.cookieBanner,.consent-banner,.spicy-consent-wrapper,.tiktok-cookie-banner,.cookie-permission-container,.GDPR-Popup_isVisible,.mod-cookie-consent,.wt-cli-cookie-bar-container,.cky-overlay,.stpd_cmp,div[data-name='mediavine-gdpr-cmp'],.cky-consent-container" +
+                    ",div[class*='DivCookieBannerContainer'],div[data-test-id='cookie-modal'],div[aria-label='Cookie notice banner']",
             )
         )
             return outputDebug("Generic simple modal list", verbose);
@@ -231,8 +233,11 @@
             removePopUp('.truste_overlay[id^="pop-div"]') &&
             removePopUp('.truste_box_overlay[id^="pop-div"]')
         )
+		{
+			removePopUp('.truste_cm_outerdiv');
             return outputDebug('.truste_overlay[id^="pop-div"]', verbose);
-        else if (
+		}
+		else if (
             removePopUp("#cookieBarRGPDPop") &&
             removePopUp("#cookieBarRGPDOverlay")
         )
