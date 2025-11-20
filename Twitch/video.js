@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      1.003
+// @version      1.004
 // @name         Twitch - Somes fix on this ****ing video player
 // @description  stop to autoplay anything and add play / pause on click in video block like any normal web video player... Click on timed bonus (icon of chest at left of chat input) automaticaly.
 // @author       lp177
@@ -60,9 +60,21 @@
         );
         for (let stories_element of stories_elements) stories_element.remove();
     }
+	function removeTurboButton() {
+		var max_parent_search_for_button=10;
+		var cursor=document.querySelector('.top-nav__menu path[d="m13 8-5.349 3.12a.5.5 0 0 0-.048.832L9 13l-1 3 5.35-3.12a.5.5 0 0 0 .047-.832L12 11l1-3Z"]');
+		if (!cursor) return;
+		while (max_parent_search_for_button-- > 0 && cursor.tagName != 'BUTTON') {
+			cursor=cursor.parentElement;
+		}
+		if (cursor.tagName == 'BUTTON')
+			cursor.remove();
+	}
     function updateVideos() {
         document.querySelector(".tw-callout-message")?.remove();
         document.querySelector("nav+div:has(+div > main)")?.remove();
+        document.querySelector("#twilight-sticky-footer-root")?.remove();
+		removeTurboButton();
         removeStoriesNavSection();
         document
             .querySelector(
@@ -139,3 +151,4 @@
     }
     setTimeout(() => setInterval(updateVideos, 1000), 300);
 })();
+
